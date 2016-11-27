@@ -1,0 +1,29 @@
+{
+  "name": "fetchsite",
+  "version": "1.0.0",
+  "description": "fetch website with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onezens/fetchsite.git"
+  },
+  "keywords": [
+    "fetch",
+    "website",
+    "node"
+  ],
+  "author": "zhen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onezens/fetchsite/issues"
+  },
+  "homepage": "https://github.com/onezens/fetchsite#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "entities": "^1.1.1",
+    "express": "^4.14.0"
+  }
+}
