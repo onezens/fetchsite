@@ -10,22 +10,20 @@ const path = require('path');
 
 var fetchUrl = 'https://npm.taobao.org/mirrors/node/latest/docs/api/';
 var fetchName = 'node_docs'; //保存在本地的目录
-var urls = {}; //初始化
+var urls = null; //初始化
 var saveDir = './public/'+fetchName;
-var fetchedUrls = [];
+var fetchedUrls = null;
 
 exitHandler();
 initHandler();
 
 function fetch() {
     console.log('fetch');
-    if (urls.index.length>0){
-        console.log('111111111111111111111111111111');
+    if (urls.index && urls.index.length>0){
         urls.index.forEach(function(match){
             fetchURL(match);
         });
     }else{
-        console.log('2222222222222222222222222');
         https.get(fetchUrl+'index.html', function(res){
 
             if (res.statusCode === 200){
@@ -37,7 +35,14 @@ function fetch() {
                     saveData('./public/'+fetchName, 'index.html', data);
                     var regex = /\b(?:href="|src=")\b\S*"/g; //g 遍历所有,正则匹配所有
                     var matches = data.toString().match(regex);
-                    urls.index = matches;
+                    var result = [];
+                    matches.forEach(function(match){
+                        //完整http路径不处理
+                        if(url.indexOf('http://') == -1 || url.indexOf('https://') == -1){
+                            result.push(operateFetchURL(match) ? operateFetchURL(match) : match);
+                        }
+                    });
+                    urls.index = result;
                     saveData(saveDir, 'temp.json', JSON.stringify(urls))
                     saveData(saveDir, 'index.html', data);
                     matches.forEach(function(match){
@@ -55,10 +60,10 @@ function fetch() {
 function initHandler() {
     var fetchedPath = path.join(__dirname, saveDir, 'fetchedinfo.json');
     var urlsPath = path.join(__dirname, saveDir, 'temp.json');
-    var data = fs.readFileSync(fetchedPath);
-    var urlsData = fs.readFileSync(urlsPath);
-    fetchedUrls = JSON.parse(data);
-    urls = JSON.parse(urlsData);
+    var data = fs.readFileSync(fetchedPath).toString();
+    var urlsData = fs.readFileSync(urlsPath).toString();
+    fetchedUrls = data ? JSON.parse(data) : [];
+    urls = urlsData ? JSON.parse(urlsData) : {};
 }
 
 function exitHandler() {
@@ -80,8 +85,9 @@ function exitHandler() {
 }
 
 function fetchURL(url){
+
    if(fetchedUrls.indexOf(url) == -1){ //防止重复获取
-       var  endUrl = getFetchURL(url);
+       var endUrl = getFetchURL(url);
        if(!endUrl) return; //默认http开头完整url不被获取,防止陷入死循环
        console.log('start fetch: ' + endUrl);
        https.get(endUrl, function(res){
@@ -94,7 +100,7 @@ function fetchURL(url){
                res.on('end', function(){
                    saveData(getSaveDir(url), path.basename(endUrl), data.toString(), function(savepath, error){
                        if(!error){
-                           fetchedUrls.push(savepath);
+                           fetchedUrls.push(operateFetchURL(url));
                        }
                    });
                });
@@ -121,28 +127,35 @@ function getSaveDir(url) {
 
 
 function getFetchURL(url){
-    if(!url) return url;
+    if(url.indexOf('http://')!=-1 || url.indexOf('https://')!=-1){
+        return null;
+    }
     return fetchUrl + operateFetchURL(url);
 }
 
 function operateFetchURL(url){
-    if(url.indexOf('http')!=-1 || url.indexOf('https')!=-1){
+    if(url.indexOf('http://')!=-1 || url.indexOf('https://')!=-1){
         return null;
     }
-    url = url.replace('href="','').replace('"', '');
+    if(url.indexOf('href="') != -1){
+        url = url.replace('href="','').replace('"', '');
+    }
+    if(url.indexOf('src="') != -1) {
+        url = url.replace('src="', '').replace('"', '');
+    }
     return url;
 }
 
 function saveData(savePath, saveName, data, cb){
     savePath = path.isAbsolute(savePath) ? savePath : path.join(__dirname, savePath);
-    //console.log(savePath);
+
     try {
         fs.statSync(savePath);
     }catch (error){
         fs.mkdirSync(savePath);
     }
     savePath = path.join(savePath, saveName);
-    //console.log(savePath);
+
     fs.writeFile(savePath, data, function(err){
         if(err){
             console.log(savePath + "  " + err);
@@ -153,7 +166,6 @@ function saveData(savePath, saveName, data, cb){
         }
     });
 }
-
 
 
 module.exports.fetch = fetch;
