@@ -8,14 +8,20 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
+//var fetchUrl = 'https://www.onezen.cc/';
+//var fetchName = 'blog'; //保存在本地的目录
+
 var fetchUrl = 'https://npm.taobao.org/mirrors/node/latest/docs/api/';
 var fetchName = 'node_docs'; //保存在本地的目录
-var saveDir = './public/'+fetchName;
+var configDir = './public/'+fetchName;
+var saveDir = configDir + '/site';
 var urls = null; //初始化,所有的url
 var fetchedUrls = null; //抓取过的url
 var regex = /\b(?:href="|src=")\b\S*"/g; //g 遍历所有,正则匹配所有
 var startFetchCount = 20; //最大抓取连接的个数
 var currentFetchIndex = 0; //当前正在抓取的索引
+var tempFileName = 'temp.json'; //抓取到的所有连接的文件名
+var fetchedFileName = 'fetchedinfo.json'; //抓去过的连接文件名
 
 //退出保存信息处理
 exitHandler();
@@ -26,7 +32,7 @@ initHandler();
 function fetch() {
     console.log('start fetch ...');
     if(urls.relativeUrls.length == 0) {
-        fetchURL('index.html', true);
+        fetchURL('#blog', true);
     }else if(urls.relativeUrls.length == fetchedUrls.length){
         console.log('all source fetched!');
         exitApp();
@@ -50,15 +56,17 @@ function fetchRun(){
     }
 }
 
-
+//抓取指定的url,该url为相对url,
+// isEntrance 是不是入口,是入口则调用fetchRun(),
+// 不是则根据currentFetchIndex获取要抓取的url
 function fetchURL(url, isEntrance){
 
     if(fetchedUrls.indexOf(url) == -1){ //防止重复获取
-
         var endUrl = getFetchURL(url)
         if(!endUrl) return;
-        console.log('start fetch: ' + endUrl);
+        console.log('\nstart fetch: ' + endUrl);
         https.get(endUrl, function(res){
+            //获取成功则保存和处理数据,失败打印请求信息
             if (res.statusCode === 200){
                 var data = null;
                 res.on('data', function(trunk){
@@ -112,7 +120,8 @@ function fetchURL(url, isEntrance){
                         }
                     }
                 });
-            }else {
+            }
+            else {
                 console.log(endUrl + " : " + res.statusCode);
                 console.log(JSON.stringify(res.headers));
             }
@@ -173,19 +182,36 @@ function saveData(savePath, saveName, data, cb){
             console.log(savePath + "  " + err);
             if(cb) cb(path.join(savePath, saveName),err);
         }else {
-            console.log('save success!  ' + savePath);
+            console.log('\nsave success!  ' + savePath);
             if(cb) cb(saveName);
         }
     });
 }
 
 function initHandler() {
-    var fetchedPath = path.join(__dirname, saveDir, 'fetchedinfo.json');
-    var urlsPath = path.join(__dirname, saveDir, 'temp.json');
-    var data = fs.readFileSync(fetchedPath).toString();
-    var urlsData = fs.readFileSync(urlsPath).toString();
-    fetchedUrls = data ? JSON.parse(data) : [];
-    urls = urlsData ? JSON.parse(urlsData) : {relativeUrls : [], absoluteUrls: [], emptyUrls: []};
+
+    try {
+        fs.statSync(configDir);
+    }catch(err){
+        fs.mkdirSync(configDir);
+    }
+
+    try{
+        var urlsPath = path.join(__dirname, configDir, tempFileName);
+        var urlsData = fs.readFileSync(urlsPath).toString();
+        urls = urlsData ? JSON.parse(urlsData) : {relativeUrls : [], absoluteUrls: [], emptyUrls: []};
+    }catch(err){
+        urls = {relativeUrls : [], absoluteUrls: [], emptyUrls: []};
+    }
+
+    try{
+        var fetchedPath = path.join(__dirname, configDir, fetchedFileName);
+        var data = fs.readFileSync(fetchedPath).toString();
+        fetchedUrls = data ? JSON.parse(data) : [];
+    }catch(err){
+        fetchedUrls = [];
+    }
+
 }
 
 function exitHandler() {
@@ -205,8 +231,8 @@ function exitHandler() {
 }
 
 function exitApp() {
-    saveData(saveDir, 'fetchedinfo.json', JSON.stringify(fetchedUrls), function(){
-        saveData(saveDir, 'temp.json', JSON.stringify(urls), function(){
+    saveData(configDir, fetchedFileName, JSON.stringify(fetchedUrls), function(){
+        saveData(configDir, tempFileName, JSON.stringify(urls), function(){
             process.exit();process.exit();
         });
     });
