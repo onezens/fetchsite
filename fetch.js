@@ -5,19 +5,22 @@
 const cheerio = require('cheerio');
 const entities = require('entities');
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-//var fetchUrl = 'https://www.onezen.cc/';
-//var fetchName = 'blog'; //保存在本地的目录
+var fetchUrl = 'http://liubin.org/promises-book/';
+var fetchName = 'promises-book'; //保存在本地的目录
+var entranceName = '';//入口 index.html
+var netSpilder = fetchUrl.indexOf('https')!=-1 ? https : http;
 
-var fetchUrl = 'https://npm.taobao.org/mirrors/node/latest/docs/api/';
-var fetchName = 'node_docs'; //保存在本地的目录
+//var fetchUrl = 'https://npm.taobao.org/mirrors/node/latest/docs/api/';
+//var fetchName = 'node_docs'; //保存在本地的目录
 var configDir = './public/'+fetchName;
 var saveDir = configDir + '/site';
 var urls = null; //初始化,所有的url
 var fetchedUrls = null; //抓取过的url
-var regex = /\b(?:href="|src=")\b\S*"/g; //g 遍历所有,正则匹配所有
+var regex = /\b(href="|src="|href=".\/)\b\S*"/g; //g 遍历所有,正则匹配所有
 var startFetchCount = 20; //最大抓取连接的个数
 var currentFetchIndex = 0; //当前正在抓取的索引
 var tempFileName = 'temp.json'; //抓取到的所有连接的文件名
@@ -32,7 +35,7 @@ initHandler();
 function fetch() {
     console.log('start fetch ...');
     if(urls.relativeUrls.length == 0) {
-        fetchURL('#blog', true);
+        fetchURL(entranceName, true);
     }else if(urls.relativeUrls.length == fetchedUrls.length){
         console.log('all source fetched!');
         exitApp();
@@ -65,72 +68,101 @@ function fetchURL(url, isEntrance){
         var endUrl = getFetchURL(url)
         if(!endUrl) return;
         console.log('\nstart fetch: ' + endUrl);
-        https.get(endUrl, function(res){
+        netSpilder.get(endUrl, function(res){
             //获取成功则保存和处理数据,失败打印请求信息
             if (res.statusCode === 200){
-                var data = null;
-                res.on('data', function(trunk){
-                    data += trunk;
-                    process.stdout.write('*');
-                });
-                res.on('end', function(){
-                    var matches = data.toString().match(regex);
-                    var absoluteUrls = urls.absoluteUrls;
-                    var relativeUrls = urls.relativeUrls;
-                    if(matches && matches.length>0){
-                        matches.forEach(function(match){
-                            var item = operateFetchURL(match);
-                            //锚点不处理
-                            if(item.indexOf('#') == -1){
-                                //完整http路径不处理
-                                if(item.indexOf('http://') != -1 || item.indexOf('https://') != -1){
-                                    if(absoluteUrls.indexOf(item) == -1) absoluteUrls.push(item);
-                                }else {
-                                    if(relativeUrls.indexOf(item) == -1) relativeUrls.push(item);
-                                }
-                            }
-                        });
-                    }else{
-                        urls.emptyUrls.push(endUrl);
-                    }
-
-                    //保存抓取的网页数据
-                    saveData(getSaveDir(url), path.basename(endUrl), data.toString(), function(savepath, error){
-                        if(!error){
-                            var item = operateFetchURL(url);
-                            if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
-                        }
-                        if(urls.relativeUrls.length == fetchedUrls.length) {
-                            console.log('all source fetched!');
-                            exitApp();
-                        }
-
-                    });
-                    //获取数据成功的回调
-                    if(typeof cb == 'function') cb();
-
-                    //如果是入口获取数据则,开始循环抓取
-                    if(isEntrance){
-                        fetchRun();
-                    }else{
-                        //递归调用
-                        if(currentFetchIndex < urls.relativeUrls.length){
-                            fetchURL(urls.relativeUrls[currentFetchIndex]);
-                            currentFetchIndex++;
-                        }
-                    }
-                });
-            }
-            else {
+                var type = res.headers['content-type'];
+                if(type.indexOf('image') != -1){
+                    fetchBufferDataOperate(res, endUrl, url);
+                }else {
+                    fetchTextDataOperate(res, endUrl, url, isEntrance);
+                }
+            }else {
                 console.log(endUrl + " : " + res.statusCode);
                 console.log(JSON.stringify(res.headers));
             }
-
         });
     }
 
 }
 
+function fetchBufferDataOperate(res, endUrl, url) {
+    var saveDir = getSaveDir(url);
+    var fileName = path.basename(endUrl);
+    try {
+        fs.statSync(saveDir);
+    }catch (err){
+        makeDirsSync(saveDir);
+    }
+    var savePath = path.join(saveDir, fileName);
+    var writeStream = fs.createWriteStream(savePath);
+
+    res.on('data', function(trunk){
+        writeStream.write(trunk);
+    });
+    res.on('end',function(){
+        writeStream.close();
+        var item = operateFetchURL(url);
+        if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
+        console.log('\nsave success!  ' + savePath);
+    });
+}
+
+function fetchTextDataOperate(res, endUrl, url, isEntrance){
+    var data = '';
+    res.on('data', function(trunk){
+        if(trunk) data += trunk;
+        process.stdout.write('*');
+    });
+    res.on('end', function(){
+        //文本类型数据处理
+        var matches = data.toString().match(regex);
+        var absoluteUrls = urls.absoluteUrls;
+        var relativeUrls = urls.relativeUrls;
+        if(matches && matches.length>0){
+            matches.forEach(function(match){
+                var item = operateFetchURL(match);
+                //锚点不处理
+                if(item.indexOf('#') == -1){
+                    //完整http路径不处理
+                    if(item.indexOf('http://') != -1 || item.indexOf('https://') != -1){
+                        if(absoluteUrls.indexOf(item) == -1) absoluteUrls.push(item);
+                    }else {
+                        if(relativeUrls.indexOf(item) == -1) relativeUrls.push(item);
+                    }
+                }
+            });
+        }else{
+            urls.emptyUrls.push(endUrl);
+        }
+
+        //保存抓取的网页数据
+        saveData(getSaveDir(url), path.basename(endUrl), data.toString(), function(savepath, error){
+            if(!error){
+                var item = operateFetchURL(url);
+                if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
+            }
+            if(urls.relativeUrls.length == fetchedUrls.length) {
+                console.log('all source fetched!');
+                exitApp();
+            }
+
+        });
+        //获取数据成功的回调
+        if(typeof cb == 'function') cb();
+
+        //如果是入口获取数据则,开始循环抓取
+        if(isEntrance){
+            fetchRun();
+        }else{
+            //递归调用
+            if(currentFetchIndex < urls.relativeUrls.length){
+                fetchURL(urls.relativeUrls[currentFetchIndex]);
+                currentFetchIndex++;
+            }
+        }
+    });
+}
 
 function getSaveDir(url) {
     url = operateFetchURL(url);
@@ -138,7 +170,7 @@ function getSaveDir(url) {
     try {
         fs.statSync(fileDir);
     }catch (error){
-        fs.mkdirSync(fileDir);
+        makeDirsSync(fileDir);
     }
     return fileDir;
 }
@@ -173,7 +205,7 @@ function saveData(savePath, saveName, data, cb){
     try {
         fs.statSync(savePath);
     }catch (error){
-        fs.mkdirSync(savePath);
+        makeDirsSync(savePath);
     }
     savePath = path.join(savePath, saveName);
 
@@ -193,7 +225,7 @@ function initHandler() {
     try {
         fs.statSync(configDir);
     }catch(err){
-        fs.mkdirSync(configDir);
+        makeDirsSync(configDir);
     }
 
     try{
@@ -236,6 +268,33 @@ function exitApp() {
             process.exit();process.exit();
         });
     });
+}
+
+function makeDirSync(dirPath) {
+    try {
+        fs.statSync(dirPath);
+    }catch (err){
+        fs.mkdirSync(dirPath);
+    }
+}
+
+function makeDirsSync(dirPath) {
+    try {
+        fs.statSync(dirPath)
+    }catch(err){
+        var dirComponent = path.relative(__dirname, dirPath);
+        var dirComArr = dirComponent.split('/');
+        //console.log(dirComArr);
+        var dirName= __dirname;
+        dirComArr.forEach(function(dirCom){
+            dirName = path.join(dirName, dirCom);
+            try {
+                makeDirSync(dirName);
+            }catch(error){
+                console.log(error);
+            }
+        });
+    }
 }
 
 
