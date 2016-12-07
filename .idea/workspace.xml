@@ -2,97 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5096b753-fb42-41c2-9a82-0c22af3f0297" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/fetchedinfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/site/www.onezen.cc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/blog/temp.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/fetchedinfo.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/addons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/addons.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/all.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/all.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/assert.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/assert.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/assets/sh.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/assets/sh_javascript.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/assets/sh_main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/assets/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/buffer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/buffer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/child_process.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/child_process.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/cli.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/cli.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/cluster.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/cluster.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/console.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/console.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/crypto.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/crypto.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/debugger.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/debugger.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/dgram.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/dgram.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/dns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/dns.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/documentation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/documentation.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/domain.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/domain.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/errors.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/errors.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/events.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/events.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/fs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/fs.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/globals.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/http.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/http.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/https.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/https.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/index.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/modules.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/modules.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/net.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/net.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/os.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/os.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/path.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/path.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/process.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/process.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/punycode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/punycode.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/querystring.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/querystring.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/readline.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/readline.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/repl.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/repl.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/stream.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/stream.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/string_decoder.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/string_decoder.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/synopsis.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/synopsis.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/timers.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/timers.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/tls.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/tls.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/tty.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/tty.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/url.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/url.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/util.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/util.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/v8.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/v8.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/vm.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/vm.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/zlib.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/site/zlib.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/node_docs/temp.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fetch.js" afterPath="$PROJECT_DIR$/fetch.js" />
     </list>
     <ignored path="fechsite.iws" />
@@ -114,20 +25,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fetch.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fetch.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fetch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="81" column="11" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.25258324">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fetchedinfo.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/promises-book/fetchedinfo.json">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -136,10 +45,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="temp.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fetchedinfo.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/promises-book/fetchedinfo.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="temp.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/promises-book/temp.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33293697">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="1349" selection-start-line="0" selection-start-column="1349" selection-end-line="0" selection-end-column="1349" />
               <folding />
             </state>
@@ -185,8 +104,8 @@
         <option value="$PROJECT_DIR$/public/node_docs/site/all.json" />
         <option value="$PROJECT_DIR$/public/N-club/fetchedinfo.json" />
         <option value="$PROJECT_DIR$/public/promises-book/fetchedinfo.json" />
-        <option value="$PROJECT_DIR$/fetch.js" />
         <option value="$PROJECT_DIR$/public/promises-book/temp.json" />
+        <option value="$PROJECT_DIR$/fetch.js" />
       </list>
     </option>
   </component>
@@ -226,6 +145,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,8 +181,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,24 +268,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="213" y="23" width="1422" height="989" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27408993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27408993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.50342464" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32751092" sideWeight="0.49657536" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -393,11 +312,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/fetch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/promises-book/fetchedinfo.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/promises-book/temp.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="1349" selection-start-line="0" selection-start-column="1349" selection-end-line="0" selection-end-column="1349" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.9.1/core-modules/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -405,9 +355,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -438,7 +386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -453,9 +400,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -479,7 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -494,9 +438,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -527,9 +469,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -560,9 +500,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,7 +523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,29 +542,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/node_docs/site/buffer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.9.1/core-modules/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="10" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fetch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="11" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -641,8 +560,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/promises-book/temp.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33293697">
+        <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="1349" selection-start-line="0" selection-start-column="1349" selection-end-line="0" selection-end-column="1349" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fetch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25258324">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
           <folding />
         </state>
       </provider>

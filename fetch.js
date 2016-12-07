@@ -86,6 +86,7 @@ function fetchURL(url, isEntrance){
 
 }
 
+//抓取buffer类型的数据,可以是图片,视频,等二进制数据
 function fetchBufferDataOperate(res, endUrl, url) {
     var saveDir = getSaveDir(url);
     var fileName = path.basename(endUrl);
@@ -108,6 +109,7 @@ function fetchBufferDataOperate(res, endUrl, url) {
     });
 }
 
+//抓取文本类型的数据
 function fetchTextDataOperate(res, endUrl, url, isEntrance){
     var data = '';
     res.on('data', function(trunk){
