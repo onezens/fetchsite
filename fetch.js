@@ -14,8 +14,8 @@ var saveDir = './public/'+fetchName;
 var urls = null; //初始化,所有的url
 var fetchedUrls = null; //抓取过的url
 var regex = /\b(?:href="|src=")\b\S*"/g; //g 遍历所有,正则匹配所有
-var fetchPointer = 0; //抓取数据索引
-var startFetchCount = 20; //第一次启动获取连接的个数
+var startFetchCount = 20; //最大抓取连接的个数
+var currentFetchIndex = 0; //当前正在抓取的索引
 
 //退出保存信息处理
 exitHandler();
@@ -25,75 +25,99 @@ initHandler();
 //开始抓取
 function fetch() {
     console.log('start fetch ...');
-
-    function fetchContent() {
-        if(urls.relativeUrls.length == fetchedUrls.length){
-            console.log('all source fetched!');
-            process.exit();
-        }else {
-            console.log('urls: ' + urls.relativeUrls.length + ' fetched urls: ' + fetchedUrls.length);
-            urls.relativeUrls.forEach(function(match){
-                fetchURL(match);
-            });
-        }
-    }
-
-    if(urls.relativeUrls && urls.relativeUrls.length>0){ //有默认值
-        fetchContent();
-    }else{
-        fetchURL('index.html');
+    if(urls.relativeUrls.length == 0) {
+        fetchURL('index.html', true);
+    }else if(urls.relativeUrls.length == fetchedUrls.length){
+        console.log('all source fetched!');
+        exitApp();
+    }else {
+        fetchRun();
     }
 }
 
-function fetchURL(furl){
-    fetchContentWithUrl(furl);
-    function fetchContentWithUrl(url) {
-        if(fetchedUrls.indexOf(url) == -1){ //防止重复获取
-            var endUrl = getFetchURL(url)
-            if(!endUrl) return;
+//一次抓取多条
+function fetchRun(){
 
-            console.log('start fetch: ' + endUrl);
-            https.get(endUrl, function(res){
-                if (res.statusCode === 200){
-                    var data = null;
-                    res.on('data', function(trunk){
-                        data += trunk;
-                        process.stdout.write('*');
-                    });
-                    res.on('end', function(){
-                        console.log('fetch end');
-                        var matches = data.toString().match(regex);
-                        var absoluteUrls = urls.absoluteUrls;
-                        var relativeUrls = urls.relativeUrls;
+    if(urls.relativeUrls.length < startFetchCount) {
+        currentFetchIndex = urls.relativeUrls.length;
+    }else {
+        currentFetchIndex = startFetchCount;
+    }
+    var startIndex = currentFetchIndex;
+    for(var i=0; i<startIndex; i++){
+        var currentUrl = urls.relativeUrls[i];
+        fetchURL(currentUrl);
+    }
+}
+
+
+function fetchURL(url, isEntrance){
+
+    if(fetchedUrls.indexOf(url) == -1){ //防止重复获取
+
+        var endUrl = getFetchURL(url)
+        if(!endUrl) return;
+        console.log('start fetch: ' + endUrl);
+        https.get(endUrl, function(res){
+            if (res.statusCode === 200){
+                var data = null;
+                res.on('data', function(trunk){
+                    data += trunk;
+                    process.stdout.write('*');
+                });
+                res.on('end', function(){
+                    var matches = data.toString().match(regex);
+                    var absoluteUrls = urls.absoluteUrls;
+                    var relativeUrls = urls.relativeUrls;
+                    if(matches && matches.length>0){
                         matches.forEach(function(match){
                             var item = operateFetchURL(match);
-                            //完整http路径不处理
-                            if(item.indexOf('http://') != -1 || item.indexOf('https://') != -1){
-                                if(absoluteUrls.indexOf(item) == -1) absoluteUrls.push(item);
-                            }else {
-                                if(relativeUrls.indexOf(item) == -1) relativeUrls.push(item);
+                            //锚点不处理
+                            if(item.indexOf('#') == -1){
+                                //完整http路径不处理
+                                if(item.indexOf('http://') != -1 || item.indexOf('https://') != -1){
+                                    if(absoluteUrls.indexOf(item) == -1) absoluteUrls.push(item);
+                                }else {
+                                    if(relativeUrls.indexOf(item) == -1) relativeUrls.push(item);
+                                }
                             }
                         });
+                    }else{
+                        urls.emptyUrls.push(endUrl);
+                    }
 
-                        saveData(getSaveDir(url), path.basename(endUrl), data.toString(), function(savepath, error){
-                            if(!error){
-                                var item = operateFetchURL(url);
-                                if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
-                            }
-                            if(urls.relativeUrls.length == fetchedUrls.length) {
-                                console.log('all source fetched!');
-                                process.exit();
-                            }
+                    //保存抓取的网页数据
+                    saveData(getSaveDir(url), path.basename(endUrl), data.toString(), function(savepath, error){
+                        if(!error){
+                            var item = operateFetchURL(url);
+                            if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
+                        }
+                        if(urls.relativeUrls.length == fetchedUrls.length) {
+                            console.log('all source fetched!');
+                            exitApp();
+                        }
 
-                        });
                     });
-                }else {
-                    console.log(endUrl + " : " + res.statusCode);
-                    console.log(JSON.stringify(res.headers));
-                }
+                    //获取数据成功的回调
+                    if(typeof cb == 'function') cb();
 
-            });
-        }
+                    //如果是入口获取数据则,开始循环抓取
+                    if(isEntrance){
+                        fetchRun();
+                    }else{
+                        //递归调用
+                        if(currentFetchIndex < urls.relativeUrls.length){
+                            fetchURL(urls.relativeUrls[currentFetchIndex]);
+                            currentFetchIndex++;
+                        }
+                    }
+                });
+            }else {
+                console.log(endUrl + " : " + res.statusCode);
+                console.log(JSON.stringify(res.headers));
+            }
+
+        });
     }
 
 }
@@ -112,9 +136,14 @@ function getSaveDir(url) {
 
 
 function getFetchURL(url){
-    if(url.indexOf('http://')!=-1 || url.indexOf('https://')!=-1){
+    if(url.indexOf('http://')!=-1 || url.indexOf('https://')!=-1){ //全url, 不抓取
         return null;
     }
+
+    if(url.indexOf('#') != -1){ //锚点不抓取
+        return null;
+    }
+
     return fetchUrl + operateFetchURL(url);
 }
 
@@ -156,12 +185,12 @@ function initHandler() {
     var data = fs.readFileSync(fetchedPath).toString();
     var urlsData = fs.readFileSync(urlsPath).toString();
     fetchedUrls = data ? JSON.parse(data) : [];
-    urls = urlsData ? JSON.parse(urlsData) : {relativeUrls : [], absoluteUrls: []};
+    urls = urlsData ? JSON.parse(urlsData) : {relativeUrls : [], absoluteUrls: [], emptyUrls: []};
 }
 
 function exitHandler() {
     var isFirst = true;
-//在控制台按下ctrl+c 后会触发这个方法;
+    //在控制台按下ctrl+c 后会触发这个方法;
     process.on('SIGINT', function(){
         if(isFirst){
             console.log('再次按下ctrl+c退出控制台');
@@ -169,13 +198,17 @@ function exitHandler() {
                 isFirst = true;
             },3000);
         }else {
-            saveData(saveDir, 'fetchedinfo.json', JSON.stringify(fetchedUrls), function(){
-                saveData(saveDir, 'temp.json', JSON.stringify(urls), function(){
-                    process.exit();process.exit();
-                });
-            });
+            exitApp();
         }
         isFirst = false;
+    });
+}
+
+function exitApp() {
+    saveData(saveDir, 'fetchedinfo.json', JSON.stringify(fetchedUrls), function(){
+        saveData(saveDir, 'temp.json', JSON.stringify(urls), function(){
+            process.exit();process.exit();
+        });
     });
 }
 
