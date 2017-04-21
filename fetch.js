@@ -9,8 +9,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-var fetchUrl = 'http://liubin.org/promises-book/';
-var fetchName = 'promises-book'; //保存在本地的目录
+var fetchUrl = 'http://reactnative.cn/docs/0.43/getting-started.html';
+var fetchName = 'reactnative_docs'; //保存在本地的目录
 var entranceName = '';//入口 index.html
 var netSpilder = fetchUrl.indexOf('https')!=-1 ? https : http;
 

@@ -1,0 +1,628 @@
+<!doctype html>
+<html>
+<head>
+<title>搭建开发环境 - React Native 中文网</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
+  <link type="text/css" rel="stylesheet" href="/scripts/index-d0e00d3bacad6f12fb0bbd65b7b1bbe5.css"/>
+</head>
+<body>
+  <div id="content"><div data-reactroot="" data-reactid="1" data-react-checksum="106768812"><!-- react-empty: 2 --><div data-reactid="3"><nav class="nav-main navbar navbar-default" data-reactid="4"><div class="container" data-reactid="5"><div class="navbar-header" data-reactid="6"><a class="nav-home navbar-brand" href="/" data-reactid="7"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAA6CAQAAACuLEfPAAAGqklEQVR4AaXZeXBV5RnH8ZOgCYgYLFowCpa2Wm0ZrRiLCrUtOijVtjpgrbUuVenouLVWRduJrda9Y1qrlQFsBY1bhFIXGJTFBQSKYJFN1EARhsgSSchClpt7P51hMnfOXQ7XHH/nr/s8z/vON+d93+d5zpugkAzzdytttUqNCQYJFH5Oca8l6jRZ50FHFoov4Ha9hLA6PePb+x0xznKZqvc98SGcD0jYqRNA0pOOyBs/3GIAbFMrAXYbEheiRB2o0l/gQKd4SD2gwcVZ0Qe4UwKw2jUG7rMONB+8EBfiUjAnw9bXrfYAqh2Utg+0CFDr/IwR/W1Hl8HxIGrA93Psg7o9rHRU9zJsBUn3Kc2J/xO4Jh7EdjQpzuu7Qgv41LeMsgfU+W7EWYHn4kAcDN6J9J9gM2jQCv6jPCKyVAIr40AcD+aIjviy9wAs0Fd0ZB12xYE4CcwQiH7GSoKOArljDdrjQFSAp0RHHKMewCaHF4DoiAPxVfB8pH+Aj8Bb3geLlUbGfoi9cSBKJLEscrO9Ddbrb4jtBd5aKz6Jd0S3YXuEbzLYaei+XyO0gd/mjT0CvBsPYinok8czHrQ5NW25GHQ6OU/0SPBiPIjnwbAc+9EawHXKDDLUVwx0iL+Cj/SNSP9/jAfx+1C6LXac8W72sBpNICVbKVCn2gOud266j3gAXBgPYiRY7nFLtYqjXeZ5SC0o7zlEb+d4TFJ+pWyxylILzTbDTHO8YZn37RSlvSpVKPr8ECNM1SxTW7zsLpdbC+4TBf8KmGOCKgvtlqlNKh1VGOJcSwGQBFN8qdt7DajVJxJiiBakjEz/nitTCU85PhriBIsBtHjaz1SA1ek+ogGMEUQ/bgFrHNid8j5DmxNdb6EUIGmyAbkQxe7SBfjAr/Trtq8IHdNnwLMFWuMDrAK3hrrUmm7fUPdrBNT7cSZEX3MBG12Y0cbcnN4Dw6XQYGBGCatUbZpfZ5SvU6XQuG8RZ4IfhbyHqNQCuDcNoY83QdI9OUWoXBL/U2RuVmLuZaJ2APUuCo16CjzsUB3Y5cCcWV8F/KUbwiTQaHTe17sA3AG26p22V8nWZaGc2o5294BHI/ZOClwhCHwH7FURscYXgEZwVdo6SlK2GpRnIbaAYREzTwB7lAWeBDdGbrRiGwEb9EpbZ8mnP4S6jUbA3OhNrBrcEFiHTr2jQ90IGB+ybZVPr4Qifgc4K3pmJ4PqwGY0CqIfPwCpjA/bevk0LyPtQcoQhbq3WYHXwKiCJZ3JIdsy+TQpFLEEUBU9s5vAA4HLwHuRCzJYAikkHBteojw6I+tTOolm/SNmHqoeDAuUWgv+HdGoPggWgZpQlsh9F1ND3vVgPpgYUWU2gOf25QknagWL8lS4Xnag07F2IaUi9HesFNZL+qV9V4LljpPCx3kQzlQHapV1p22j7QWfuTKr5o8BLwn8BizIqBK326BLh3ddGrIfZCsYLfA2OC1jzsM8LgVqDQ4XsBG2AFY4LwQyDVwkUOoTcEnW31QUsYCvCQSuztqwA9ypETBfdx0K870IYI3rHCrQ2x60dN9DjAM7uruLqGeYTnT65r5fZdqwW4nASFO0Alrcpjh/U3O2dQDazfYEqE77XwZPRCMosgjcl3XAZ9sIoMvTmZdpuZOMs0KmFrrNWIMFhmhGyhmREFeBTfo42AhXe8QHwmo1ydc+X6N7ksfskK1G/7UebHe5C4w12umGqzDKWc4z3k1awTqbpWSqy5uu1K9nLX+RsSDpi6oNHB/vu+MX4CEVfqnKPHU9AGrynuluMcYR7geXxoOYktPW9lJuuEdAm8f82aOmmuwRD5okAW5zjIMz5jkH/C0exBvg0MiStlxJKEGtjeyivg5ejwdRi6a8njKbMg5vkRlgbd4yWCqFLfEg2rEm8gq9DdwduqlsiWzktsW9LjoczI70/1QKXO7nIOUnkbFLQL+eQwwHU0VHTAQJHWBidKTZoLznECPAdIXPD0wTFIQ4PO495r/2O/kYXSDpwv3GvQXKeg5xdKGD5XxtABIuiY70MZrjbMxiHfgwMqlXSoFXPQ9S7lEccUvehdXxjugKMCiP50jzADVKFPsH4HVH5r18hinxIO4Ft+d8+t+gAaRUpvuq2yXBbhNy3sdMMC4exLGSaPKN0E3W1TYAPvXDrIZoB2CVi/TK+pbdpiQeRGA6aFDlWnd4UTOAZw3IiT7MCwB2+KcbTDBVAlwriAvRz1q5esfpkSPOtFKuXvhi/xc9xDSdAHab7rQCI4qcbZY2AM3uVrz/Mf8HAPN89ITf1FIAAAAASUVORK5CYII=" alt="logo" data-reactid="8"/><!-- react-text: 9 -->React Native<!-- /react-text --></a><li class="nav-version dropdown" data-reactid="10"><a id="nav_version" role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" href="#" data-reactid="11"><!-- react-text: 12 -->0.43<!-- /react-text --><!-- react-text: 13 --> <!-- /react-text --><span class="caret" data-reactid="14"></span></a><ul role="menu" class="dropdown-menu" aria-labelledby="nav_version" data-reactid="15"><li role="presentation" class="" data-reactid="16"><a role="menuitem" tabindex="-1" href="#" data-reactid="17">更新日志</a></li><li role="presentation" class="" data-reactid="18"><a role="menuitem" tabindex="-1" href="#" data-reactid="19">0.31</a></li><li role="presentation" class="" data-reactid="20"><a role="menuitem" tabindex="-1" href="#" data-reactid="21">0.32</a></li><li role="presentation" class="" data-reactid="22"><a role="menuitem" tabindex="-1" href="#" data-reactid="23">0.33</a></li><li role="presentation" class="" data-reactid="24"><a role="menuitem" tabindex="-1" href="#" data-reactid="25">0.34</a></li><li role="presentation" class="" data-reactid="26"><a role="menuitem" tabindex="-1" href="#" data-reactid="27">0.35</a></li><li role="presentation" class="" data-reactid="28"><a role="menuitem" tabindex="-1" href="#" data-reactid="29">0.36</a></li><li role="presentation" class="" data-reactid="30"><a role="menuitem" tabindex="-1" href="#" data-reactid="31">0.37</a></li><li role="presentation" class="" data-reactid="32"><a role="menuitem" tabindex="-1" href="#" data-reactid="33">0.38</a></li><li role="presentation" class="" data-reactid="34"><a role="menuitem" tabindex="-1" href="#" data-reactid="35">0.39</a></li><li role="presentation" class="" data-reactid="36"><a role="menuitem" tabindex="-1" href="#" data-reactid="37">0.40</a></li><li role="presentation" class="" data-reactid="38"><a role="menuitem" tabindex="-1" href="#" data-reactid="39">0.41</a></li><li role="presentation" class="" data-reactid="40"><a role="menuitem" tabindex="-1" href="#" data-reactid="41">0.42</a></li><li role="presentation" class="" data-reactid="42"><a role="menuitem" tabindex="-1" href="#" data-reactid="43">0.43(当前版本)</a></li><li role="presentation" class="" data-reactid="44"><a role="menuitem" tabindex="-1" href="#" data-reactid="45">未来版本</a></li></ul></li><button type="button" class="navbar-toggle collapsed" data-reactid="46"><span class="sr-only" data-reactid="47">Toggle navigation</span><span class="icon-bar" data-reactid="48"></span><span class="icon-bar" data-reactid="49"></span><span class="icon-bar" data-reactid="50"></span></button></div><div class="navbar-collapse collapse" data-reactid="51"><ul class="nav navbar-nav" data-reactid="52"><li role="presentation" class="active" data-reactid="53"><a action="push" href="/docs/0.43/getting-started.html" data-reactid="54"><!-- react-text: 55 -->文档<!-- /react-text --></a></li><li role="presentation" class="" data-reactid="56"><a href="https://ke.qq.com/course/197101" target="_blank" data-reactid="57"><!-- react-text: 58 -->入门课程<!-- /react-text --><div class="hotSign" data-reactid="59"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAMCAIAAADzpzofAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACWSURBVDhPrY4xDoMwEASvh4oqNS+wKP1THpU6XfpUlJSw2Md6I+RIAU5T7C3nEfZqmxvZdHMIc4zX2XVpWdKMg/Hzv7huwt+FUHRpPUHRAery+oPapes+fY8lH+nggSeZY4kGBlB0QL8xM9RKxXXvRwd4pJmhViqb7mlu1CNmhlqpQOU6wCPNOegcy/wEfOmu47rbMFsBYRTU59bxEc0AAAAASUVORK5CYII=" alt="hot" data-reactid="60"/></div></a></li><li role="presentation" class="" data-reactid="61"><a action="push" href="/cases.html" data-reactid="62"><!-- react-text: 63 -->案例<!-- /react-text --></a></li><li role="presentation" class="" data-reactid="64"><a action="push" href="/blog.html" data-reactid="65"><!-- react-text: 66 -->博客<!-- /react-text --></a></li><li role="presentation" class="" data-reactid="67"><a href="//i.youku.com/i/UMzM5ODI5MDA4MA==/videos" target="_blank" data-reactid="68"><!-- react-text: 69 -->视频<!-- /react-text --></a></li><li role="presentation" class="" data-reactid="70"><a href="http://bbs.reactnative.cn/" target="_blank" data-reactid="71"><!-- react-text: 72 -->讨论<!-- /react-text --></a></li><li role="presentation" class="" data-reactid="73"><a href="http://update.reactnative.cn/" target="_blank" data-reactid="74"><!-- react-text: 75 -->热更新<!-- /react-text --></a></li><li role="presentation" class="" data-reactid="76"><a action="push" href="/about.html" data-reactid="77"><!-- react-text: 78 -->关于<!-- /react-text --></a></li></ul><ul class="nav navbar-nav navbar-right" data-reactid="79"><li role="presentation" class="" data-reactid="80"><a role="button" href="#" data-reactid="81"><form class="nav-search-form" target="_blank" rel="noopener noreferrer" action="http://zhannei.baidu.com/cse/site" data-reactid="82"><input type="text" class="nav-search" name="q" size="30" placeholder="搜索文档" data-reactid="83"/><input type="hidden" name="cc" value="reactnative.cn" data-reactid="84"/></form></a></li><li role="presentation" class="" data-reactid="85"><a href="https://github.com/facebook/react-native" data-reactid="86"><!-- react-text: 87 -->GitHub<!-- /react-text --></a></li></ul></div></div></nav><div class="navbar-placeholder" data-reactid="88"></div><!-- react-empty: 89 --></div><section class="content" data-reactid="90"><div class="container" data-reactid="91"><a class="anchor" name="content" data-reactid="92"></a><div class="apiContainer row" data-reactid="93"><div class="mdContaint col-md-9 col-md-push-3 col-sm-8 col-sm-push-4 col-xs-12" data-reactid="94"><div class="mainText" data-reactid="95"><div data-reactid="96"><!-- react-empty: 97 --><a class="anchor" name="content" data-reactid="98"></a><h1 data-reactid="99">搭建开发环境</h1><div class="doc-extra-links" data-reactid="100"><a class="doc-edit-github" href="https://github.com/reactnativecn/react-native.cn/tree/stable/docs/docs/0.43/getting-started.md" data-reactid="101">在GitHub上修改这篇文档</a><a class="doc-donation" href="/about.html#%E6%8D%90%E5%8A%A9" data-reactid="102">支持我们</a></div><section class="content" data-reactid="103"><div class="markdown" data-reactid="104"><a class="anchor" id="content"></a><p>欢迎使用React Native！这篇文档会帮助你搭建基本的React Native开发环境。如果你已经搭好了环境，那么可以尝试一下<a href="tutorial.html">编写Hello World</a>。</p>
+<p>���据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发iOS和Android也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。</p>
+<p>如果<code>阅读完本文档</code>后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的<code>环境搭建视频教程</code>(<a href="https://ke.qq.com/webcourse/index.html#course_id=197101&amp;term_id=100233637&amp;taid=1220865928921581&amp;vid=a1417i5op7k" target="_blank">macOS iOS</a>、<a href="https://ke.qq.com/webcourse/index.html#course_id=197101&amp;term_id=100233637&amp;taid=1220870223888877&amp;vid=z1417kmxask" target="_blank">macOS Android</a>、<a href="https://ke.qq.com/webcourse/index.html#course_id=197101&amp;term_id=100233637&amp;taid=1220874518856173&amp;vid=d1417tgg1ez" target="_blank">windows Android</a>)、<a href="http://bbs.reactnative.cn/topic/10" target="_blank">windows环境搭建文字教程</a>、以及<a href="http://bbs.reactnative.cn/topic/130" target="_blank">常见问题</a>。</p>
+<div class="toggler">
+<style>
+.toggler {
+  margin-bottom: 10px;
+}
+.toggler a {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 5px;
+  margin: 2px;
+  border: 1px solid #05A5D1;
+  border-radius: 3px;
+  text-decoration: none !important;
+}
+.display-os-mac .toggler .button-mac,
+.display-os-linux .toggler .button-linux,
+.display-os-windows .toggler .button-windows,
+.display-platform-ios .toggler .button-ios,
+.display-platform-android .toggler .button-android {
+  background-color: #05A5D1;
+  color: white;
+}
+.md-block { display: none; }
+.md-block img { max-width:650px; }
+.display-platform-ios.display-os-mac .ios.mac,
+.display-platform-ios.display-os-linux .ios.linux,
+.display-platform-ios.display-os-windows .ios.windows,
+.display-platform-android.display-os-mac .android.mac,
+.display-platform-android.display-os-linux .android.linux,
+.display-platform-android.display-os-windows .android.windows {
+  display: block;
+}
+</style>
+<span>目标平台：</span>
+<a class="button-ios" onclick="display('platform', 'ios')">iOS</a>
+<a class="button-android" onclick="display('platform', 'android')">Android</a>
+<span>开发平台：</span>
+<a class="button-mac" onclick="display('os', 'mac')">macOS</a>
+<a class="button-linux" onclick="display('os', 'linux')">Linux</a>
+<a class="button-windows" onclick="display('os', 'windows')">Windows</a>
+</div>
+
+<!-- ######### LINUX AND WINDOWS for iOS ##################### -->
+<div markdown class="md-block linux windows ios">
+
+<h2><a class="anchor" name="%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81"></a>
+    暂不支持<a class="hash-link" href="#%E6%9A%82%E4%B8%8D%E6%94%AF%E6%8C%81">#</a>
+    </h2>
+<p>苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑先开发Android应用了。</p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-sorry-not-supported.png" alt=""></p>
+<!-- ######### MAC for iOS ##################### -->
+<p></div><div markdown class="md-block mac ios android" ></p>
+<h2><a class="anchor" name="%E5%AE%89%E8%A3%85"></a>
+    安装<a class="hash-link" href="#%E5%AE%89%E8%A3%85">#</a>
+    </h2>
+<h3><a class="anchor" name="%E5%BF%85%E9%9C%80%E7%9A%84%E8%BD%AF%E4%BB%B6"></a>
+    必需的软件<a class="hash-link" href="#%E5%BF%85%E9%9C%80%E7%9A%84%E8%BD%AF%E4%BB%B6">#</a>
+    </h3>
+<h4><a class="anchor" name="homebrew"></a>
+    Homebrew<a class="hash-link" href="#homebrew">#</a>
+    </h4>
+<p><a href="http://brew.sh/" target="_blank">Homebrew</a>, Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件。</p>
+<pre><code><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/ruby -e "$(curl -fsSL https:/</span><span class="hljs-regexp">/raw.githubusercontent.com/</span>Homebrew<span class="hljs-regexp">/install/m</span>aster<span class="hljs-regexp">/install)"</span>
+</code></pre><p>译注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到<code>/usr/local</code>目录不可写的权限问题。可以使用下面的命令修复：  </p>
+<pre><code class="lang-bash">sudo chown -R `whoami` /usr/<span class="hljs-built_in">local</span>
+</code></pre>
+<h4><a class="anchor" name="node"></a>
+    Node<a class="hash-link" href="#node">#</a>
+    </h4>
+<p>使用Homebrew来安装<a href="https://nodejs.org/" target="_blank">Node.js</a>.</p>
+<blockquote>
+<p>React Native目前需要NodeJS 5.0或更高版本。本文发布时Homebrew默认安装的是最新版本，一般都满足要求。 </p>
+</blockquote>
+<pre><code>brew install <span class="hljs-keyword">node</span><span class="hljs-title"></span>
+</code></pre><p>安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别！</p>
+<pre><code><span class="hljs-built_in">npm</span> config set registry https:<span class="hljs-regexp">//</span>registry.<span class="hljs-built_in">npm</span>.taobao.org --<span class="hljs-built_in">global</span>
+<span class="hljs-built_in">npm</span> config set disturl https:<span class="hljs-regexp">//</span><span class="hljs-built_in">npm</span>.taobao.org/dist --<span class="hljs-built_in">global</span>
+</code></pre><h4><a class="anchor" name="yarn-react-native%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-react-native-cli-"></a>
+    Yarn、React Native的命令行工具（react-native-cli）<a class="hash-link" href="#yarn-react-native%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-react-native-cli-">#</a>
+    </h4>
+<p><a href="http://yarnpkg.com" target="_blank">Yarn</a>是Facebook提供的替代npm的工具，可以加速node���块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p>
+<pre><code><span class="hljs-built_in">npm</span> install -g yarn react-<span class="hljs-keyword">native</span>-cli
+</code></pre><p>安装完yarn后同理也要设置镜像源：</p>
+<pre><code>yarn config <span class="hljs-keyword">set</span> registry https:<span class="hljs-string">//registry.npm.taobao.org</span> <span class="hljs-params">--global</span>
+yarn config <span class="hljs-keyword">set</span> disturl https:<span class="hljs-string">//npm.taobao.org/dist</span> <span class="hljs-params">--global</span>
+</code></pre><p>如果你看到<code>EACCES: permission denied</code>这样的权限报错，那么请参照上文的homebrew译注，修复<code>/usr/local</code>目录的所有权：  </p>
+<pre><code class="lang-bash">sudo chown -R `whoami` /usr/<span class="hljs-built_in">local</span>
+</code></pre>
+<p></div><div markdown class="md-block mac ios"></p>
+<h4><a class="anchor" name="xcode"></a>
+    Xcode<a class="hash-link" href="#xcode">#</a>
+    </h4>
+<p>React Native目前需要<a href="https://developer.apple.com/xcode/downloads/" target="_blank">Xcode</a> 8.0 或更高版本。你可以通过App Store或是到<a href="https://developer.apple.com/xcode/downloads/" target="_blank">Apple开发者官网</a>上下载。这一步骤会同时安装Xcode IDE和Xcode的命令行工���。</p>
+<blockquote>
+<p>虽然一般来说命令行工具都是默认安装了，但你最好还是启动Xcode，并在<code>Xcode | Preferences | Locations</code>菜单中检查一下是否装有某个版本的<code>Command Line Tools</code>。Xcode的命令行工具中也包含一些必须的工具，比如<code>git</code>等。</p>
+</blockquote>
+<p></div><div markdown class="md-block mac android" ></p>
+<h4><a class="anchor" name="android-studio"></a>
+    Android Studio<a class="hash-link" href="#android-studio">#</a>
+    </h4>
+<p>React Native目前需要<a href="http://developer.android.com/sdk/index.html" target="_blank">Android Studio</a>2.0或更高版本。</p>
+<blockquote>
+<p>Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入
+<code>javac -version</code>来查看你当前安装的JDK版本。如果版本不合要求，则可以到
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">官网</a>上下载。</p>
+</blockquote>
+<p>Android Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。</p>
+<blockquote>
+<p>除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了
+<code>Android Support Repository</code>，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。</p>
+</blockquote>
+<p>安装过程中有一些需要改动的选项：</p>
+<ul>
+<li>选择<code>Custom</code>选项：</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-custom-install.png" alt="custom installation"></p>
+<ul>
+<li>勾选<code>Performance</code>和<code>Android Virtual Device</code></li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-additional-installs.png" alt="additional installs"></p>
+<ul>
+<li>安装完成后，在Android Studio的启动欢迎界面中选择<code>Configure | SDK Manager</code>。</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-configure-sdk.png" alt="configure sdk"></p>
+<ul>
+<li>在<code>SDK Platforms</code>窗口中，选择<code>Show Package Details</code>，然后在<code>Android 6.0 (Marshmallow)</code>中勾选<code>Google APIs</code>、<code>Android SDK Platform 23</code>、<code>Intel x86 Atom_64 System Image</code>以及<code>Google APIs Intel x86 Atom_64 System Image</code>。</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-android-sdk-platforms.png" alt="platforms"></p>
+<ul>
+<li>在<code>SDK Tools</code>窗口中，选择<code>Show Package Details</code>，然后在<code>Android SDK Build Tools</code>中勾选<code>Android SDK Build-Tools 23.0.1</code>（必须是这个版本）。然后还要勾选最底部的<code>Android Support Repository</code>.</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-android-sdk-build-tools.png" alt="build tools"></p>
+<h4><a class="anchor" name="android_home%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"></a>
+    ANDROID_HOME环境变量<a class="hash-link" href="#android_home%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">#</a>
+    </h4>
+<p>确保<code>ANDROID_HOME</code>环境变量正确地指向了你安装的Android SDK的路径。具体的做法是把下面的命令加入到<code>~/.bash_profile</code>文件中：(<strong>译注</strong>：~表示用户目录，即<code>/Users/你的用户名/</code>，而小数点开头的文件在Finder中是隐藏的，并且这个文件有可能并不存在。请在终端下使用<code>vi ~/.bash_profile</code>命令创建或编辑。如不熟悉vi操作，请点击<a href="http://www.eepw.com.cn/article/48018.htm" target="_blank">这里</a>学习）  </p>
+<pre><code><span class="hljs-comment"># 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。</span>
+export ANDROID_HOME=~<span class="hljs-regexp">/Library/</span>Android<span class="hljs-regexp">/sdk</span>
+</code></pre><p>然后使用下列命令使其立即生效（否则重启后才生效）：  </p>
+<pre><code class="lang-bash"><span class="hljs-built_in">source</span> ~/.bash_profile
+</code></pre>
+<p>可以使用<code>echo $ANDROID_HOME</code>检查此变量是否已正确设置。</p>
+<p></div></p>
+<div markdown class="md-block mac ios android">
+
+<h3><a class="anchor" name="%E6%8E%A8%E8%8D%90%E5%AE%89%E8%A3%85%E7%9A%84%E5%B7%A5%E5%85%B7"></a>
+    推荐安装的工具<a class="hash-link" href="#%E6%8E%A8%E8%8D%90%E5%AE%89%E8%A3%85%E7%9A%84%E5%B7%A5%E5%85%B7">#</a>
+    </h3>
+<h4><a class="anchor" name="watchman"></a>
+    Watchman<a class="hash-link" href="#watchman">#</a>
+    </h4>
+<p><a href="https://facebook.github.io/watchman/docs/install.html" target="_blank">Watchman</a>是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。</p>
+<pre><code><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>watchman
+</code></pre><h4><a class="anchor" name="flow"></a>
+    Flow<a class="hash-link" href="#flow">#</a>
+    </h4>
+<p><a href="http://www.flowtype.org" target="_blank">Flow</a>是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。</p>
+<pre><code><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>flow
+</code></pre><p></div><div markdown class="md-block mac android"></p>
+<h4><a class="anchor" name="%E5%B0%86android-sdk%E7%9A%84tools%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0-path-%E5%8F%98%E9%87%8F%E4%B8%AD"></a>
+    将Android SDK的Tools目录添加到<code>PATH</code>变量中<a class="hash-link" href="#%E5%B0%86android-sdk%E7%9A%84tools%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0-path-%E5%8F%98%E9%87%8F%E4%B8%AD">#</a>
+    </h4>
+<p>你可以把Android SDK的tools和platform-tools目录添加到<code>PATH</code>变量中，以便在终端中运行一些Android工具，例如<code>android avd</code>或是<code>adb logcat</code>等。具体做法仍然是在<code>~/.bash_profile</code>中添加：</p>
+<pre><code><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$ANDROID_HOME</span>/tools:<span class="hljs-variable">$ANDROID_HOME</span>/platform-tools
+</code></pre><h3><a class="anchor" name="%E5%85%B6%E4%BB%96%E5%8F%AF%E9%80%89%E7%9A%84%E5%AE%89%E8%A3%85%E9%A1%B9"></a>
+    其他可选的安装项<a class="hash-link" href="#%E5%85%B6%E4%BB%96%E5%8F%AF%E9%80%89%E7%9A%84%E5%AE%89%E8%A3%85%E9%A1%B9">#</a>
+    </h3>
+<h4><a class="anchor" name="git"></a>
+    Git<a class="hash-link" href="#git">#</a>
+    </h4>
+<p>Git版本控制。如果你已经安装过<a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a>，则Git也已经一并安装了。如若没有，则使用下列命令安装：</p>
+<pre><code><span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>git
+</code></pre><p></div><div markdown class="md-block mac ios android"></p>
+<h4><a class="anchor" name="nuclide"></a>
+    Nuclide<a class="hash-link" href="#nuclide">#</a>
+    </h4>
+<p><a href="http://nuclide.io" target="_blank">Nuclide</a>（此链接需要科学上网）是由Facebook提供的基于atom的集成开发环境，可用于编写、<a href="http://nuclide.io/docs/platforms/react-native/#running-applications" target="_blank">运行</a>和
+<a href="http://nuclide.io/docs/platforms/react-native/#debugging" target="_blank">调试</a>React Native应用。</p>
+<p>点击这里阅读<a href="http://nuclide.io/docs/quick-start/getting-started/" target="_blank">Nuclide的入门文档</a>。</p>
+<p>译注：我们更推荐使用<a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>或<a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>来编写React Native应用。</p>
+<p></div><div markdown class="md-block mac android"></p>
+<h4><a class="anchor" name="genymotion"></a>
+    Genymotion<a class="hash-link" href="#genymotion">#</a>
+    </h4>
+<p>比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。</p>
+<ol>
+<li>下载和安装<a href="https://www.genymotion.com/download" target="_blank">Genymotion</a>（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。</li>
+<li>打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。</li>
+<li>创建一个新模拟器并启动。</li>
+<li>启动React Native应用后，可以按下⌘+M来打开开发者菜单。</li>
+</ol>
+<p></div></p>
+<div markdown class="md-block linux windows android">
+
+<h2><a class="anchor" name="%E5%AE%89%E8%A3%85"></a>
+    安装<a class="hash-link" href="#%E5%AE%89%E8%A3%85">#</a>
+    </h2>
+<h3><a class="anchor" name="%E5%BF%85%E9%9C%80%E7%9A%84%E8%BD%AF%E4%BB%B6"></a>
+    必需的软件<a class="hash-link" href="#%E5%BF%85%E9%9C%80%E7%9A%84%E8%BD%AF%E4%BB%B6">#</a>
+    </h3>
+<p></div><div markdown class="md-block windows android"></p>
+<h4><a class="anchor" name="chocolatey"></a>
+    Chocolatey<a class="hash-link" href="#chocolatey">#</a>
+    </h4>
+<p><a href="https://chocolatey.org" target="_blank">Chocolatey</a>是一个Windows上的包管理器，类似于linux上的<code>yum</code>和
+<code>apt-get</code>。 你可以在其<a href="https://chocolatey.org" target="_blank">官方网站</a>上查看具体的使用说明。一般的安装步骤应该是下面这样：</p>
+<pre><code>@powershell -NoProfile -ExecutionPolicy Bypass -Command <span class="hljs-string">"iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"</span> &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+</code></pre><blockquote>
+<p>一般来说，使用Chocolatey来安装软件的时候，需要以管理员的身份来运行命令提示符窗口。译注：chocolatey的网站可能在国内访问困难，导致上述安装命令无法正常完成。请使用稳定的翻墙工具。
+如果你实在装不上这个工具，也不要紧。下面所需的python2和nodejs你可以分别单独去对应的官方网站下载安装即可。</p>
+</blockquote>
+<h4><a class="anchor" name="python-2"></a>
+    Python 2<a class="hash-link" href="#python-2">#</a>
+    </h4>
+<p>打开命令提示符窗口，使用Chocolatey来安装Python 2.</p>
+<blockquote>
+<p>注意目前不支持Python 3版本。</p>
+</blockquote>
+<pre><code>choco <span class="hljs-keyword">install</span> python2
+</code></pre><p></div><div markdown class="md-block linux windows android"></p>
+<h4><a class="anchor" name="node"></a>
+    Node<a class="hash-link" href="#node">#</a>
+    </h4>
+<p></div><div markdown class="md-block linux android"></p>
+<p>打开终端窗口，输入下面的命令来安装NodeJS:</p>
+<pre><code>sudo apt-get <span class="hljs-keyword">install</span> -y <span class="hljs-keyword">build</span>-essential
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-<span class="hljs-keyword">get</span> <span class="hljs-keyword">install</span> -y nodejs
+sudo <span class="hljs-keyword">ln</span> -s /usr/<span class="hljs-keyword">bin</span>/nodejs /usr/<span class="hljs-keyword">bin</span>/node
+</code></pre><p></div><div markdown class="md-block windows android"></p>
+<p>打开命令提示符窗口，使用Chocolatey来安装NodeJS。注意，目前已知Node 7.1版本在windows上无法正常工作，请避开这个版本！</p>
+<pre><code>choco <span class="hljs-keyword">install</span> nodejs.<span class="hljs-keyword">install</span>
+</code></pre><p>安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别！</p>
+<pre><code><span class="hljs-built_in">npm</span> config set registry https:<span class="hljs-regexp">//</span>registry.<span class="hljs-built_in">npm</span>.taobao.org --<span class="hljs-built_in">global</span>
+<span class="hljs-built_in">npm</span> config set disturl https:<span class="hljs-regexp">//</span><span class="hljs-built_in">npm</span>.taobao.org/dist --<span class="hljs-built_in">global</span>
+</code></pre><p></div><div markdown class="md-block windows linux android"></p>
+<h4><a class="anchor" name="yarn-react-native%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-react-native-cli-"></a>
+    Yarn、React Native的命令行工具（react-native-cli）<a class="hash-link" href="#yarn-react-native%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7-react-native-cli-">#</a>
+    </h4>
+<p><a href="http://yarnpkg.com" target="_blank">Yarn</a>是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。</p>
+<pre><code><span class="hljs-built_in">npm</span> install -g yarn react-<span class="hljs-keyword">native</span>-cli
+</code></pre><p>安装完yarn后同理也要设置镜像源：</p>
+<pre><code>yarn config <span class="hljs-keyword">set</span> registry https:<span class="hljs-string">//registry.npm.taobao.org</span> <span class="hljs-params">--global</span>
+yarn config <span class="hljs-keyword">set</span> disturl https:<span class="hljs-string">//npm.taobao.org/dist</span> <span class="hljs-params">--global</span>
+</code></pre><blockquote>
+<p>如果你遇到<code>EACCES: permission denied</code>权限错误，可以尝试运行下面的命令（限linux系统）：
+<code>sudo npm install -g yarn react-native-cli</code>.</p>
+</blockquote>
+<h4><a class="anchor" name="android-studio"></a>
+    Android Studio<a class="hash-link" href="#android-studio">#</a>
+    </h4>
+<p><a href="http://developer.android.com/sdk/index.html" target="_blank">Android Studio</a> 2.0 or higher.</p>
+<p>React Native目前需要<a href="http://developer.android.com/sdk/index.html" target="_blank">Android Studio</a>2.0或更高版本。</p>
+<blockquote>
+<p>Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入
+<code>javac -version</code>来查看你当前安装的JDK版本。如果版本不合要求，则可以到
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">官网</a>上下载。
+或是使用包管理器来安装（比如<code>choco install jdk8</code>或是
+<code>apt-get install default-jdk</code>）</p>
+</blockquote>
+<p>Android Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。</p>
+<blockquote>
+<p>除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了
+<code>Android Support Repository</code>，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。</p>
+</blockquote>
+<p></div><div markdown class="md-block linux android"></p>
+<p>安装过程中有一些需要改动的选项：</p>
+<ul>
+<li>选择<code>Custom</code>选项：</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-custom-install-linux.png" alt="custom installation"></p>
+<ul>
+<li>选择<code>Android Virtual Device</code></li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-additional-installs-linux.png" alt="additional installs"></p>
+<p></div><div markdown class="md-block windows android"></p>
+<ul>
+<li><p>确定所有安装都勾选了，尤其是<code>Android SDK</code>和<code>Android Device Emulator</code>。</p>
+</li>
+<li><p>在初步安装完成后，选择<code>Custom</code>安装项：</p>
+</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-custom-install-windows.png" alt="custom installation"></p>
+<ul>
+<li>检查已安装的组件，尤其是模拟器和HAXM加速驱动。</li>
+</ul>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-verify-installs-windows.png" alt="verify installs"></p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<ul>
+<li>安装完成后，在Android Studio的欢迎界面中选择<code>Configure | SDK Manager</code>。</li>
+</ul>
+<p></div><div markdown class="md-block linux android"></p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-configure-sdk-linux.png" alt="configure sdk"></p>
+<p></div><div markdown class="md-block windows android"></p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-configure-sdk-windows.png" alt="configure sdk"></p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<ul>
+<li>在<code>SDK Platforms</code>窗口中，选择<code>Show Package Details</code>，然后在<code>Android 6.0 (Marshmallow)</code>中勾选<code>Google APIs</code>、<code>Android SDK Platform 23</code>、<code>Intel x86 Atom System Image</code>、<code>Intel x86 Atom_64 System Image</code>以及<code>Google APIs Intel x86 Atom_64 System Image</code>。</li>
+</ul>
+<p></div><div markdown class="md-block linux android"></p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-android-sdk-platforms-linux.png" alt="platforms"></p>
+<p></div><div markdown class="md-block windows android"></p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-android-sdk-platforms-windows.png" alt="platforms"></p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<ul>
+<li>在<code>SDK Tools</code>窗口中，选择<code>Show Package Details</code>，然后在<code>Android SDK Build Tools</code>中勾选<code>Android SDK Build-Tools 23.0.1</code>（必须是这个版本）。然后还要勾选最底部的<code>Android Support Repository</code>.</li>
+</ul>
+<p></div><div markdown class="md-block linux android"></p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-android-sdk-build-tools-linux.png" alt="build tools"></p>
+<p></div><div markdown class="md-block windows android"></p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-android-sdk-build-tools-windows.png" alt="build tools"></p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<h4><a class="anchor" name="android_home%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"></a>
+    ANDROID_HOME环境变量<a class="hash-link" href="#android_home%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">#</a>
+    </h4>
+<p>确保<code>ANDROID_HOME</code>环境变量正确地指向了你安装的Android SDK的路径。</p>
+<p></div><div markdown class="md-block linux android"></p>
+<p>具体的做法是把下面的命令加入到<code>~/.bashrc</code>、<code>~/.bash_profile</code>文件中。如果你使用的是其他的shell，则选择对应的配置文件:</p>
+<pre><code><span class="hljs-comment"># 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。</span>
+export ANDROID_HOME=~<span class="hljs-regexp">/Library/</span>Android<span class="hljs-regexp">/sdk</span>
+</code></pre><p>然后使用下列命令使其立即生效（否则重启后才生效）：  </p>
+<pre><code class="lang-bash"><span class="hljs-built_in">source</span> ~/.bash_profile
+</code></pre>
+<p>可以使用<code>echo $ANDROID_HOME</code>检查此变量是否已正确设置。</p>
+<p></div><div markdown class="md-block windows android"></p>
+<p>打开<code>控制面板</code> -&gt; <code>系统和安全</code> -&gt; <code>系统</code> -&gt; <code>高级系统设置</code> -&gt;
+<code>高级</code> -&gt; <code>环境变量</code> -&gt; <code>新建</code></p>
+<blockquote>
+<p>具体的路径可能和下图不一致，请自行确认。</p>
+</blockquote>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-sdk-environment-variable-windows.png" alt="env variable"></p>
+<blockquote>
+<p>你需要关闭现有的命令符提示窗口然后重新打开，这样新的环境变量才能生效。</p>
+</blockquote>
+<p></div><div markdown class="md-block linux windows android"></p>
+<h3><a class="anchor" name="%E6%8E%A8%E8%8D%90%E5%AE%89%E8%A3%85%E7%9A%84%E5%B7%A5%E5%85%B7"></a>
+    推荐安装的工具<a class="hash-link" href="#%E6%8E%A8%E8%8D%90%E5%AE%89%E8%A3%85%E7%9A%84%E5%B7%A5%E5%85%B7">#</a>
+    </h3>
+<p></div><div markdown class="md-block linux android"></p>
+<h4><a class="anchor" name="watchman"></a>
+    Watchman<a class="hash-link" href="#watchman">#</a>
+    </h4>
+<p><a href="https://facebook.github.io/watchman/docs/install.html" target="_blank">Watchman</a>是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。</p>
+<blockquote>
+<p>安装watchman还可以避免node的一个与文件监视有关的bug。</p>
+</blockquote>
+<p>在终端中输入以下命令来编译并安装watchman:</p>
+<pre><code>git clone http<span class="hljs-variable">s:</span>//github.<span class="hljs-keyword">com</span>/facebook/watchman.git
+<span class="hljs-keyword">cd</span> watchman
+git checkout v4.<span class="hljs-number">5.0</span>  # 这���本文发布时的最新版本
+./autogen.<span class="hljs-keyword">sh</span>
+./configure
+<span class="hljs-keyword">make</span>
+sudo <span class="hljs-keyword">make</span> install
+</code></pre><h4><a class="anchor" name="flow"></a>
+    Flow<a class="hash-link" href="#flow">#</a>
+    </h4>
+<p><a href="http://www.flowtype.org" target="_blank">Flow</a>是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。</p>
+<p>在终端中输入以下命令来安装flow:</p>
+<pre><code>npm <span class="hljs-keyword">install</span> -g flow-<span class="hljs-keyword">bin</span>
+</code></pre><p></div></p>
+<div markdown class="md-block mac windows linux android">
+
+<h4><a class="anchor" name="gradle-daemon"></a>
+    Gradle Daemon<a class="hash-link" href="#gradle-daemon">#</a>
+    </h4>
+<p>开启<a href="https://docs.gradle.org/2.9/userguide/gradle_daemon.html" target="_blank">Gradle Daemon</a>可以极大地提升java代码的增量编译速度。</p>
+<p></div></p>
+<div markdown class="md-block mac linux android">
+
+<pre><code>touch ~<span class="hljs-regexp">/.gradle/gradle</span>.properties &amp;&amp; echo <span class="hljs-string">"org.gradle.daemon=true"</span> <span class="hljs-meta">&gt;&gt; </span>~<span class="hljs-regexp">/.gradle/gradle</span>.properties
+</code></pre><p></div></p>
+<div markdown class="md-block windows android">
+
+<pre><code>(<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> exist <span class="hljs-string">"%USERPROFILE%/.gradle"</span> <span class="hljs-keyword">mkdir</span> <span class="hljs-string">"%USERPROFILE%/.gradle"</span>) &amp;&amp; (echo org.gradle.daemon=true &gt;&gt; <span class="hljs-string">"%USERPROFILE%/.gradle/gradle.properties"</span>)
+</code></pre><p></div></p>
+<div markdown class="md-block linux android">
+
+<h4><a class="anchor" name="android%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%8A%A0%E9%80%9F%E5%99%A8"></a>
+    Android模拟器加速器<a class="hash-link" href="#android%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%8A%A0%E9%80%9F%E5%99%A8">#</a>
+    </h4>
+<p>在安装Android Studio时你可能会看到下面这样的提示：</p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-studio-kvm-linux.png" alt="accelerator"></p>
+<p>如果你的系统支持KVM，那就应该安装<a href="https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272" target="_blank">Intel的Android模拟器加速器</a>。</p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<h4><a class="anchor" name="%E5%B0%86android-sdk%E7%9A%84tools%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0-path-%E5%8F%98%E9%87%8F%E4%B8%AD"></a>
+    将Android SDK的Tools目录添加到<code>PATH</code>变量中<a class="hash-link" href="#%E5%B0%86android-sdk%E7%9A%84tools%E7%9B%AE%E5%BD%95%E6%B7%BB%E5%8A%A0%E5%88%B0-path-%E5%8F%98%E9%87%8F%E4%B8%AD">#</a>
+    </h4>
+<p>你可以把Android SDK的tools和platform-tools目录添加到<code>PATH</code>变量中，以便在终端中运行一些Android工具，例如<code>android avd</code>或是<code>adb logcat</code>等。</p>
+<p></div><div markdown class="md-block linux android"></p>
+<p>在<code>~/.bashrc</code>或是<code>~/.bash_profile</code>文件中添加：</p>
+<pre><code><span class="hljs-comment"># 你的具体路径可能有所不同，请自行确认。</span>
+PATH=<span class="hljs-string">"~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}"</span>
+<span class="hljs-keyword">export</span> PATH
+</code></pre><p></div><div markdown class="md-block windows android"></p>
+<p>打开<code>控制面板</code> -&gt; <code>系统和安全</code> -&gt; <code>系统</code> -&gt; <code>高级系统设置</code> -&gt;
+<code>高级</code> -&gt; <code>环境变量</code> -&gt; 选中<code>PATH</code> -&gt; 双击进行编辑</p>
+<blockquote>
+<p>注意你的具体路径可能和下图不同</p>
+</blockquote>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-android-tools-environment-variable-windows.png" alt="env variable"></p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<h3><a class="anchor" name="%E5%8F%AF%E9%80%89%E7%9A%84%E5%AE%89%E8%A3%85%E9%A1%B9"></a>
+    可选的安装项<a class="hash-link" href="#%E5%8F%AF%E9%80%89%E7%9A%84%E5%AE%89%E8%A3%85%E9%A1%B9">#</a>
+    </h3>
+<h4><a class="anchor" name="git"></a>
+    Git<a class="hash-link" href="#git">#</a>
+    </h4>
+<p></div><div markdown class="md-block linux android"></p>
+<p><a href="https://git-scm.com/download/linux" target="_blank">使用包管理器</a>来安装Git
+(例如<code>sudo apt-get install git-all</code>).</p>
+<p></div><div markdown class="md-block windows android"></p>
+<p>你可以使用Chocolatey来安装<code>git</code>:</p>
+<pre><code>choco <span class="hljs-keyword">install</span> git
+</code></pre><p>另外你也可以直接去下载<a href="https://git-for-windows.github.io/" target="_blank">Git for Windows</a>。
+在安装过程中注意勾选&quot;Run Git from Windows Command Prompt&quot;，这样才会把<code>git</code>命令添加到<code>PATH</code>环境变量中。</p>
+<p></div><div markdown class="md-block linux android"></p>
+<h4><a class="anchor" name="nuclide"></a>
+    Nuclide<a class="hash-link" href="#nuclide">#</a>
+    </h4>
+<p><a href="http://nuclide.io" target="_blank">Nuclide</a>（此链接需要科学上网）是由Facebook提供的基于atom的集成开发环境，可用于编写、<a href="http://nuclide.io/docs/platforms/react-native/#running-applications" target="_blank">运行</a>和
+<a href="http://nuclide.io/docs/platforms/react-native/#debugging" target="_blank">调试</a>React Native应用。</p>
+<p>点击这里阅读<a href="http://nuclide.io/docs/quick-start/getting-started/" target="_blank">Nuclide的入门文档</a>。</p>
+<p>译注：我们更推荐使用<a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>或<a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>来编写React Native应用。</p>
+<p></div><div markdown class="md-block linux windows android"></p>
+<h4><a class="anchor" name="genymotion"></a>
+    Genymotion<a class="hash-link" href="#genymotion">#</a>
+    </h4>
+<p>比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。</p>
+<ol>
+<li>下载和安装<a href="https://www.genymotion.com/download" target="_blank">Genymotion</a>（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。</li>
+<li>打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。</li>
+<li>创建一个新模拟器并启动。</li>
+<li>启动React Native应用后，可以按下F1来打开开发者菜单。</li>
+</ol>
+<p></div><div markdown class="md-block windows android"></p>
+<h4><a class="anchor" name="visual-studio-emulator-for-android"></a>
+    Visual Studio Emulator for Android<a class="hash-link" href="#visual-studio-emulator-for-android">#</a>
+    </h4>
+<p><a href="https://www.visualstudio.com/zh-cn/features/msft-android-emulator-vs.aspx#中国 (简体中文" target="_blank">Visual Studio Emulator for Android</a>)是利用了Hyper-V技术进行硬件加速的免费android模拟器。也是Android Studio自带的原装模拟器之外的一个很好的选择。而且你并不需要安装Visual Studio。
+在用于React Native开发前，需要先在注册表中进行一些修改：</p>
+<ol>
+<li>打开运行命令（按下Windows+R键）</li>
+<li>输入<code>regedit.exe</code>然后回车</li>
+<li>在注册表编辑器中找到<code>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Android SDK Tools</code>条目</li>
+<li>右键点击<code>Android SDK Tools</code>，选择<code>新建 &gt; 字符串值</code></li>
+<li>名称设为<code>Path</code></li>
+<li>双击<code>Path</code>，将其值设为你的Android SDK的路径。（例如<code>C:\Program Files\Android\sdk</code>）</li>
+</ol>
+<p></div></p>
+<div markdown class="md-block mac ios android">
+
+<h2><a class="anchor" name="%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85"></a>
+    测试安装<a class="hash-link" href="#%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85">#</a>
+    </h2>
+<p></div><div markdown class="md-block mac ios"></p>
+<pre><code>react-<span class="hljs-keyword">native</span> init AwesomeProject
+cd AwesomeProject
+react-<span class="hljs-keyword">native</span> run-ios
+</code></pre><blockquote>
+<p>提示：你可以使用<code>--version</code>参数创建指定版本的项目。例如<code>react-native init MyApp --version 0.39.2</code>。注意版本号必须精确到两个小数点。</p>
+</blockquote>
+<p>你也可以在<a href="http://nuclide.io" target="_blank">Nuclide</a>中打开<a href="http://nuclide.io/docs/quick-start/getting-started/#adding-a-project" target="_blank"><code>AwesomeProject</code></a>文件夹
+然后<a href="http://nuclide.io/docs/platforms/react-native/#command-line" target="_blank">运行</a>，或是双击<code>ios/AwesomeProject.xcodeproj</code>文件然后在Xcode中点击<code>Run</code>按钮。</p>
+<p></div><div markdown class="md-block mac android"></p>
+<pre><code>react-<span class="hljs-keyword">native</span> init AwesomeProject
+cd AwesomeProject
+react-<span class="hljs-keyword">native</span> run-android
+</code></pre><blockquote>
+<p>提示：你可以使用<code>--version</code>参数创建指定版本的项目。例如<code>react-native init MyApp --version 0.39.2</code>。注意版本号必须精确到两个小数点。</p>
+</blockquote>
+<p>你也可以在<a href="http://nuclide.io" target="_blank">Nuclide</a>中打开<a href="http://nuclide.io/docs/quick-start/getting-started/#adding-a-project" target="_blank"><code>AwesomeProject</code></a>文件夹然后<a href="http://nuclide.io/docs/platforms/react-native/#command-line" target="_blank">运行</a>。</p>
+<p></div><div markdown class="md-block mac ios android"></p>
+<h3><a class="anchor" name="%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE"></a>
+    修改项目<a class="hash-link" href="#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE">#</a>
+    </h3>
+<p>现在你已经成功运行了项目，我们可以开始尝试动手改一改了：</p>
+<p></div><div markdown class="md-block mac ios"></p>
+<ul>
+<li>使用你喜欢的编辑器打开<code>index.ios.js</code>并随便改上几行。</li>
+<li>在iOS Emulator中按下<code>⌘-R</code>就可以刷新APP并看到你的最新修改！</li>
+</ul>
+<p></div><div markdown class="md-block mac android"></p>
+<ul>
+<li>使用你喜欢的文本编辑器打开<code>index.android.js</code>并随便改上几行</li>
+<li>按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是<code>⌘+M</code>）打开开发者菜单，然后选择 <em>Reload JS</em> 就可以看到你的最新修改。</li>
+<li>在终端下运行<code>adb logcat *:S ReactNative:V ReactNativeJS:V</code>可以看到你的应用的日志。</li>
+</ul>
+<p></div><div markdown class="md-block mac ios android"></p>
+<h3><a class="anchor" name="%E5%AE%8C%E6%88%90%E4%BA%86-"></a>
+    完成了！<a class="hash-link" href="#%E5%AE%8C%E6%88%90%E4%BA%86-">#</a>
+    </h3>
+<p>恭喜！你已经成功运行并修改了你的第一个React Native应用。</p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-congratulations.png" alt=""></p>
+<p></div><div markdown class="md-block windows linux android"></p>
+<h2><a class="anchor" name="%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85"></a>
+    测试安装<a class="hash-link" href="#%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85">#</a>
+    </h2>
+<pre><code>react-<span class="hljs-keyword">native</span> init AwesomeProject
+cd AwesomeProject
+react-<span class="hljs-keyword">native</span> run-android
+</code></pre><blockquote>
+<p>提示：你可以使用<code>--version</code>参数创建指定版本的项目。例如<code>react-native init MyApp --version 0.39.2</code>。注意版本号必须精确到两个小数点。</p>
+</blockquote>
+<p><strong>Windows用户请注意，请不要在命令行默认的System32目录中init项目！会有各种权限限制导致不能运行！</strong>
+</div></p>
+<div markdown class="md-block windows linux android">
+
+<h3><a class="anchor" name="%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE"></a>
+    修改项目<a class="hash-link" href="#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE">#</a>
+    </h3>
+<p>现在你已经成功运行了项目，我们可以开始尝试动手改一改了：</p>
+<ul>
+<li>使用你喜欢的文本编辑器打开<code>index.android.js</code>并随便改上几行</li>
+<li>按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是<code>⌘+M</code>）打开开发者菜单，然后选择 <em>Reload JS</em> 就可以看���你的最新修改。</li>
+<li>在终端下运行<code>adb logcat *:S ReactNative:V ReactNativeJS:V</code>可以看到你的应用的日志。</li>
+</ul>
+<h3><a class="anchor" name="%E5%AE%8C%E6%88%90%E4%BA%86-"></a>
+    完成了！<a class="hash-link" href="#%E5%AE%8C%E6%88%90%E4%BA%86-">#</a>
+    </h3>
+<p>恭喜！你已经成功运行并修改了你的第一个React Native应用。</p>
+<p><img class="img-responsive" src="/static/docs/0.43/img/react-native-congratulations.png" alt=""></p>
+<p></div><div markdown class="md-block mac ios android"></p>
+<h2><a class="anchor" name="%E6%8E%A5%E4%B8%8B%E6%9D%A5"></a>
+    接下来<a class="hash-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5">#</a>
+    </h2>
+<p></div><div markdown class="md-block mac ios"></p>
+<ul>
+<li>如果你想要在真机上运行应用，请参阅<a href="running-on-device-ios.html#content">在设备上运行</a>。</li>
+</ul>
+<p></div><div markdown class="md-block mac android"></p>
+<ul>
+<li>如果你想要在真机上运行应用，请参阅<a href="running-on-device-android.html#content">在设备上运行</a>。</li>
+</ul>
+<p></div><div markdown class="md-block mac ios android"></p>
+<ul>
+<li>如果你碰到了一些问题，请参阅<a href="http://bbs.reactnative.cn/topic/130" target="_blank">常见问题</a>。</li>
+</ul>
+<p></div><div markdown class="md-block windows linux android"></p>
+<h2><a class="anchor" name="%E6%8E%A5%E4%B8%8B%E6%9D%A5"></a>
+    接下来<a class="hash-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5">#</a>
+    </h2>
+<ul>
+<li><p>如果你想要在真机上运行应用，请参阅<a href="running-on-device-android.html#content">在设备上运行</a>。</p>
+</li>
+<li><p>如果你碰到了一些问题，请参阅<a href="http://bbs.reactnative.cn/topic/130" target="_blank">常见问题</a>。</p>
+</li>
+</ul>
+<p></div></p>
+<script class="markdown-script">
+window.display = function (type, value) {
+  var container = document.querySelector('.md-block').parentNode;
+  container.className = 'display-' + type + '-' + value + ' ' +
+    container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
+}
+
+// If we are coming to the page with a hash in it (i.e. from a search, for example), try to get
+// us as close as possible to the correct platform and dev os using the hashtag and block walk up.
+var foundHash = false;
+if (window.location.hash !== '' && window.location.hash !== 'content') { // content is default
+  var hashLinks = document.querySelectorAll('a.hash-link');
+  for (var i = 0; i < hashLinks.length && !foundHash; ++i) {
+    if (hashLinks[i].hash === window.location.hash) {
+      var parent = hashLinks[i].parentElement;
+      while (parent) {
+        if (parent.tagName === 'BLOCK') {
+          var devOS = null;
+          var targetPlatform = null;
+          // Could be more than one target os and dev platform, but just choose some sort of order
+          // of priority here.
+
+          // Dev OS
+          if (parent.className.indexOf('mac') > -1) {
+            devOS = 'mac';
+          } else if (parent.className.indexOf('linux') > -1) {
+            devOS = 'linux';
+          } else if (parent.className.indexOf('windows') > -1) {
+            devOS = 'windows';
+          } else {
+            break; // assume we don't have anything.
+          }
+
+          // Target Platform
+          if (parent.className.indexOf('ios') > -1) {
+            targetPlatform = 'ios';
+          } else if (parent.className.indexOf('android') > -1) {
+            targetPlatform = 'android';
+          } else {
+            break; // assume we don't have anything.
+          }
+          // We would have broken out if both targetPlatform and devOS hadn't been filled.
+          display('os', devOS);
+          display('platform', targetPlatform);      
+          foundHash = true;
+          break;
+        }
+        parent = parent.parentElement;
+      }
+    }
+  }
+}
+// Do the default if there is no matching hash
+if (!foundHash) {
+  var isMac = navigator.platform === 'MacIntel';
+  var isWindows = navigator.platform === 'Win32';
+  display('os', isMac ? 'mac' : (isWindows ? 'windows' : 'linux'));
+  display('platform', isMac ? 'ios' : 'android');
+}
+</script>
+</div><div class="prevNextRow row" data-reactid="105"><div class="col-md-3 col-md-offset-9 col-xs-3 col-xs-offset-7" data-reactid="106"><a class="nextprevLink" href="/docs/0.43/tutorial.html#content" data-reactid="107"><!-- react-text: 108 -->后一篇：<!-- /react-text --><!-- react-text: 109 -->编写Hello World<!-- /react-text --></a></div></div></section><div class="vip" data-reactid="110"><a target="_blank" href="https://m.ke.qq.com/courseShare.html?_bid=167&amp;_wv=1819&amp;cid=197101&amp;actid=11258&amp;tid=100233637#from=sharetool" data-reactid="111"><img title="听晴明老师从头讲React Native" src="/scripts/10b5582927f91a64968fca92895bfc9a.png" data-reactid="112"/></a></div><div data-reactid="113"></div></div></div></div><div class="col-md-3 col-md-pull-9 col-sm-4 col-sm-pull-8 col-xs-12" data-reactid="114"><ul data-reactid="115"><li class="apiGroup" data-reactid="116"><!-- react-text: 117 -->入门基础<!-- /react-text --><ul class="apiSub" data-reactid="118"><li data-reactid="119"><a href="/docs/0.43/getting-started.html#content" class="active" data-reactid="120">搭建开发环境</a></li><li data-reactid="121"><a href="/docs/0.43/tutorial.html#content" data-reactid="122">编写Hello World</a></li><li data-reactid="123"><a href="/docs/0.43/props.html#content" data-reactid="124">Props（属性）</a></li><li data-reactid="125"><a href="/docs/0.43/state.html#content" data-reactid="126">State（状态）</a></li><li data-reactid="127"><a href="/docs/0.43/style.html#content" data-reactid="128">样式</a></li><li data-reactid="129"><a href="/docs/0.43/height-and-width.html#content" data-reactid="130">高度与宽度</a></li><li data-reactid="131"><a href="/docs/0.43/layout-with-flexbox.html#content" data-reactid="132">使用Flexbox布局</a></li><li data-reactid="133"><a href="/docs/0.43/handling-text-input.html#content" data-reactid="134">处理文本输入</a></li><li data-reactid="135"><a href="/docs/0.43/using-a-scrollview.html#content" data-reactid="136">如何使用ScrollView</a></li><li data-reactid="137"><a href="/docs/0.43/using-a-listview.html#content" data-reactid="138">如何使用ListView</a></li><li data-reactid="139"><a href="/docs/0.43/network.html#content" data-reactid="140">网络</a></li><li data-reactid="141"><a href="/docs/0.43/more-resources.html#content" data-reactid="142">其他参考资源</a></li></ul></li><li class="apiGroup" data-reactid="143"><!-- react-text: 144 -->进阶指南<!-- /react-text --><ul class="apiSub" data-reactid="145"><li data-reactid="146"><a href="/docs/0.43/integration-with-existing-apps.html#content" data-reactid="147">嵌入到现有原生应用</a></li><li data-reactid="148"><a href="/docs/0.43/colors.html#content" data-reactid="149">颜色</a></li><li data-reactid="150"><a href="/docs/0.43/images.html#content" data-reactid="151">图片</a></li><li data-reactid="152"><a href="/docs/0.43/handling-touches.html#content" data-reactid="153">处理触摸事件</a></li><li data-reactid="154"><a href="/docs/0.43/animations.html#content" data-reactid="155">动画</a></li><li data-reactid="156"><a href="/docs/0.43/accessibility.html#content" data-reactid="157">无障碍功能</a></li><li data-reactid="158"><a href="/docs/0.43/timers.html#content" data-reactid="159">定时器</a></li><li data-reactid="160"><a href="/docs/0.43/direct-manipulation.html#content" data-reactid="161">直接操作</a></li><li data-reactid="162"><a href="/docs/0.43/debugging.html#content" data-reactid="163">调试</a></li><li data-reactid="164"><a href="/docs/0.43/testing.html#content" data-reactid="165">自动化测试</a></li><li data-reactid="166"><a href="/docs/0.43/javascript-environment.html#content" data-reactid="167">JavaScript环境</a></li><li data-reactid="168"><a href="/docs/0.43/navigation.html#content" data-reactid="169">导航器对比</a></li><li data-reactid="170"><a href="/docs/0.43/performance.html#content" data-reactid="171">性能</a></li><li data-reactid="172"><a href="/docs/0.43/upgrading.html#content" data-reactid="173">升级</a></li><li data-reactid="174"><a href="/docs/0.43/platform-specific-code.html#content" data-reactid="175">特定平台代码</a></li><li data-reactid="176"><a href="/docs/0.43/gesture-responder-system.html#content" data-reactid="177">手势响应系统</a></li></ul></li><li class="apiGroup" data-reactid="178"><!-- react-text: 179 -->社区资源<!-- /react-text --><ul class="apiSub" data-reactid="180"><li data-reactid="181"><a target="_blank" href="/videos.html#content" data-reactid="182">中文视频教程</a></li><li data-reactid="183"><a target="_blank" href="https://js.coach/react-native#content" data-reactid="184">js.coach第三方组件库</a></li><li data-reactid="185"><a target="_blank" href="http://bbs.reactnative.cn/category/5#content" data-reactid="186">中文论坛组件分享区</a></li><li data-reactid="187"><a target="_blank" href="http://bbs.reactnative.cn/category/4#content" data-reactid="188">中文论坛问题求助区</a></li></ul></li><li class="apiGroup" data-reactid="189"><!-- react-text: 190 -->使用指南(iOS)<!-- /react-text --><ul class="apiSub" data-reactid="191"><li data-reactid="192"><a href="/docs/0.43/native-modules-ios.html#content" data-reactid="193">原生模块</a></li><li data-reactid="194"><a href="/docs/0.43/native-component-ios.html#content" data-reactid="195">原生UI组件</a></li><li data-reactid="196"><a href="/docs/0.43/linking-libraries-ios.html#content" data-reactid="197">链接原生库</a></li><li data-reactid="198"><a href="/docs/0.43/running-on-device-ios.html#content" data-reactid="199">在设备上运行</a></li><li data-reactid="200"><a href="/docs/0.43/running-on-simulator-ios.html#content" data-reactid="201">在模拟器上运行</a></li><li data-reactid="202"><a href="/docs/0.43/communication-ios.html#content" data-reactid="203">在原生和React Native间通信</a></li></ul></li><li class="apiGroup" data-reactid="204"><!-- react-text: 205 -->使用指南(Android)<!-- /react-text --><ul class="apiSub" data-reactid="206"><li data-reactid="207"><a href="/docs/0.43/native-modules-android.html#content" data-reactid="208">原生模块</a></li><li data-reactid="209"><a href="/docs/0.43/native-component-android.html#content" data-reactid="210">原生UI组件</a></li><li data-reactid="211"><a href="/docs/0.43/headless-js-android.html#content" data-reactid="212">Headless JS（后台任务）</a></li><li data-reactid="213"><a href="/docs/0.43/running-on-device-android.html#content" data-reactid="214">在设备上运行</a></li><li data-reactid="215"><a href="/docs/0.43/signed-apk-android.html#content" data-reactid="216">打包APK</a></li><li data-reactid="217"><a href="/docs/0.43/android-ui-performance.html#content" data-reactid="218">调试Android UI性能</a></li><li data-reactid="219"><a href="/docs/0.43/android-building-from-source.html#content" data-reactid="220">从源代码编译React Native</a></li></ul></li><li class="apiGroup" data-reactid="221"><!-- react-text: 222 -->组件<!-- /react-text --><ul class="apiSub" data-reactid="223"><li data-reactid="224"><a href="/docs/0.43/activityindicator.html#content" data-reactid="225">ActivityIndicator</a></li><li data-reactid="226"><a href="/docs/0.43/button.html#content" data-reactid="227">Button</a></li><li data-reactid="228"><a href="/docs/0.43/datepickerios.html#content" data-reactid="229">DatePickerIOS</a></li><li data-reactid="230"><a href="/docs/0.43/drawerlayoutandroid.html#content" data-reactid="231">DrawerLayoutAndroid</a></li><li data-reactid="232"><a href="/docs/0.43/flatlist.html#content" data-reactid="233">FlatList</a></li><li data-reactid="234"><a href="/docs/0.43/image.html#content" data-reactid="235">Image</a></li><li data-reactid="236"><a href="/docs/0.43/keyboardavoidingview.html#content" data-reactid="237">KeyboardAvoidingView</a></li><li data-reactid="238"><a href="/docs/0.43/listview.html#content" data-reactid="239">ListView</a></li><li data-reactid="240"><a href="/docs/0.43/listviewdatasource.html#content" data-reactid="241">ListView.DataSource</a></li><li data-reactid="242"><a href="/docs/0.43/modal.html#content" data-reactid="243">Modal</a></li><li data-reactid="244"><a href="/docs/0.43/navigator.html#content" data-reactid="245">Navigator</a></li><li data-reactid="246"><a href="/docs/0.43/navigatorios.html#content" data-reactid="247">NavigatorIOS</a></li><li data-reactid="248"><a href="/docs/0.43/picker.html#content" data-reactid="249">Picker</a></li><li data-reactid="250"><a href="/docs/0.43/pickerios.html#content" data-reactid="251">PickerIOS</a></li><li data-reactid="252"><a href="/docs/0.43/progressbarandroid.html#content" data-reactid="253">ProgressBarAndroid</a></li><li data-reactid="254"><a href="/docs/0.43/progressviewios.html#content" data-reactid="255">ProgressViewIOS</a></li><li data-reactid="256"><a href="/docs/0.43/refreshcontrol.html#content" data-reactid="257">RefreshControl</a></li><li data-reactid="258"><a href="/docs/0.43/scrollview.html#content" data-reactid="259">ScrollView</a></li><li data-reactid="260"><a href="/docs/0.43/sectionlist.html#content" data-reactid="261">SectionList</a></li><li data-reactid="262"><a href="/docs/0.43/segmentedcontrolios.html#content" data-reactid="263">SegmentedControlIOS</a></li><li data-reactid="264"><a href="/docs/0.43/slider.html#content" data-reactid="265">Slider</a></li><li data-reactid="266"><a href="/docs/0.43/statusbar.html#content" data-reactid="267">StatusBar</a></li><li data-reactid="268"><a href="/docs/0.43/switch.html#content" data-reactid="269">Switch</a></li><li data-reactid="270"><a href="/docs/0.43/tabbarios.html#content" data-reactid="271">TabBarIOS</a></li><li data-reactid="272"><a href="/docs/0.43/tabbarios-item.html#content" data-reactid="273">TabBarIOS.Item</a></li><li data-reactid="274"><a href="/docs/0.43/text.html#content" data-reactid="275">Text</a></li><li data-reactid="276"><a href="/docs/0.43/textinput.html#content" data-reactid="277">TextInput</a></li><li data-reactid="278"><a href="/docs/0.43/toolbarandroid.html#content" data-reactid="279">ToolbarAndroid</a></li><li data-reactid="280"><a href="/docs/0.43/touchablehighlight.html#content" data-reactid="281">TouchableHighlight</a></li><li data-reactid="282"><a href="/docs/0.43/touchablenativefeedback.html#content" data-reactid="283">TouchableNativeFeedback</a></li><li data-reactid="284"><a href="/docs/0.43/touchableopacity.html#content" data-reactid="285">TouchableOpacity</a></li><li data-reactid="286"><a href="/docs/0.43/touchablewithoutfeedback.html#content" data-reactid="287">TouchableWithoutFeedback</a></li><li data-reactid="288"><a href="/docs/0.43/view.html#content" data-reactid="289">View</a></li><li data-reactid="290"><a href="/docs/0.43/viewpagerandroid.html#content" data-reactid="291">ViewPagerAndroid</a></li><li data-reactid="292"><a href="/docs/0.43/virtualizedlist.html#content" data-reactid="293">VirtualizedList</a></li><li data-reactid="294"><a href="/docs/0.43/webview.html#content" data-reactid="295">WebView</a></li></ul></li><li class="apiGroup" data-reactid="296"><!-- react-text: 297 -->API<!-- /react-text --><ul class="apiSub" data-reactid="298"><li data-reactid="299"><a href="/docs/0.43/actionsheetios.html#content" data-reactid="300">ActionSheetIOS</a></li><li data-reactid="301"><a href="/docs/0.43/adsupportios.html#content" data-reactid="302">AdSupportIOS</a></li><li data-reactid="303"><a href="/docs/0.43/alert.html#content" data-reactid="304">Alert</a></li><li data-reactid="305"><a href="/docs/0.43/alertios.html#content" data-reactid="306">AlertIOS</a></li><li data-reactid="307"><a href="/docs/0.43/animated.html#content" data-reactid="308">Animated</a></li><li data-reactid="309"><a href="/docs/0.43/appregistry.html#content" data-reactid="310">AppRegistry</a></li><li data-reactid="311"><a href="/docs/0.43/appstate.html#content" data-reactid="312">AppState</a></li><li data-reactid="313"><a href="/docs/0.43/asyncstorage.html#content" data-reactid="314">AsyncStorage</a></li><li data-reactid="315"><a href="/docs/0.43/backandroid.html#content" data-reactid="316">BackAndroid</a></li><li data-reactid="317"><a href="/docs/0.43/cameraroll.html#content" data-reactid="318">CameraRoll</a></li><li data-reactid="319"><a href="/docs/0.43/clipboard.html#content" data-reactid="320">Clipboard</a></li><li data-reactid="321"><a href="/docs/0.43/datepickerandroid.html#content" data-reactid="322">DatePickerAndroid</a></li><li data-reactid="323"><a href="/docs/0.43/dimensions.html#content" data-reactid="324">Dimensions</a></li><li data-reactid="325"><a href="/docs/0.43/easing.html#content" data-reactid="326">Easing</a></li><li data-reactid="327"><a href="/docs/0.43/geolocation.html#content" data-reactid="328">Geolocation</a></li><li data-reactid="329"><a href="/docs/0.43/imageeditor.html#content" data-reactid="330">ImageEditor</a></li><li data-reactid="331"><a href="/docs/0.43/imagepickerios.html#content" data-reactid="332">ImagePickerIOS</a></li><li data-reactid="333"><a href="/docs/0.43/imagestore.html#content" data-reactid="334">ImageStore</a></li><li data-reactid="335"><a href="/docs/0.43/interactionmanager.html#content" data-reactid="336">InteractionManager</a></li><li data-reactid="337"><a href="/docs/0.43/keyboard.html#content" data-reactid="338">Keyboard</a></li><li data-reactid="339"><a href="/docs/0.43/layoutanimation.html#content" data-reactid="340">LayoutAnimation</a></li><li data-reactid="341"><a href="/docs/0.43/linking.html#content" data-reactid="342">Linking</a></li><li data-reactid="343"><a href="/docs/0.43/nativemethodsmixin.html#content" data-reactid="344">NativeMethodsMixin</a></li><li data-reactid="345"><a href="/docs/0.43/netinfo.html#content" data-reactid="346">NetInfo</a></li><li data-reactid="347"><a href="/docs/0.43/panresponder.html#content" data-reactid="348">PanResponder</a></li><li data-reactid="349"><a href="/docs/0.43/permissionsandroid.html#content" data-reactid="350">PermissionsAndroid</a></li><li data-reactid="351"><a href="/docs/0.43/pixelratio.html#content" data-reactid="352">PixelRatio</a></li><li data-reactid="353"><a href="/docs/0.43/pushnotificationios.html#content" data-reactid="354">PushNotificationIOS</a></li><li data-reactid="355"><a href="/docs/0.43/share.html#content" data-reactid="356">Share</a></li><li data-reactid="357"><a href="/docs/0.43/stylesheet.html#content" data-reactid="358">StyleSheet</a></li><li data-reactid="359"><a href="/docs/0.43/systrace.html#content" data-reactid="360">Systrace</a></li><li data-reactid="361"><a href="/docs/0.43/timepickerandroid.html#content" data-reactid="362">TimePickerAndroid</a></li><li data-reactid="363"><a href="/docs/0.43/toastandroid.html#content" data-reactid="364">ToastAndroid</a></li><li data-reactid="365"><a href="/docs/0.43/vibration.html#content" data-reactid="366">Vibration</a></li><li data-reactid="367"><a href="/docs/0.43/layout-props.html#content" data-reactid="368">布局样式属性</a></li><li data-reactid="369"><a href="/docs/0.43/shadow-props.html#content" data-reactid="370">阴影样式属性</a></li></ul></li></ul></div></div></div></section><footer class="wrap" data-reactid="371"><div class="container" data-reactid="372"><div class="right" data-reactid="373"><p data-reactid="374">React Native中文网.</p><p data-reactid="375">© 2017 杭州欧石南网络科技有限公司</p><p class="gray" data-reactid="376">浙ICP备15023664号-3</p><p class="gray" data-reactid="377"><img src="/scripts/d0289dc0a46fc5b15b3363ffa78cf6c7.png" alt="浙公网安备 33010602005511号" data-reactid="378"/><!-- react-text: 379 -->浙公网安备 33010602005511号<!-- /react-text --></p></div></div></footer></div></div>
+  <script>window.resources={"/static/docs/0.43/indexes.json":"{\n    \"contains\": [\n        {\n            \"group\": \"入门基础\",\n            \"contains\": [\n                {\n                    \"subject\": \"搭建开发环境\",\n                    \"mdlink\": \"getting-started\"\n                },\n                {\n                    \"subject\": \"编写Hello World\",\n                    \"mdlink\": \"tutorial\"\n                },\n                {\n                    \"subject\": \"Props（属性）\",\n                    \"mdlink\": \"props\"\n                },\n                {\n                    \"subject\": \"State（状态）\",\n                    \"mdlink\": \"state\"\n                },\n                {\n                    \"subject\": \"样式\",\n                    \"mdlink\": \"style\"\n                },\n                {\n                    \"subject\": \"高度与宽度\",\n                    \"mdlink\": \"height-and-width\"\n                },\n                {\n                    \"subject\": \"使用Flexbox布局\",\n                    \"mdlink\": \"layout-with-flexbox\"\n                },\n                {\n                    \"subject\": \"处理文本输入\",\n                    \"mdlink\": \"handling-text-input\"\n                },\n                {\n                    \"subject\": \"如何使用ScrollView\",\n                    \"mdlink\": \"using-a-scrollview\"\n                },\n                {\n                    \"subject\": \"如何使用ListView\",\n                    \"mdlink\": \"using-a-listview\"\n                },\n                {\n                    \"subject\": \"网络\",\n                    \"mdlink\": \"network\"\n                },\n                {\n                    \"subject\": \"其他参考资源\",\n                    \"mdlink\": \"more-resources\"\n                }\n            ]\n        },\n        {\n            \"group\": \"进阶指南\",\n            \"contains\": [\n                {\n                    \"subject\": \"嵌入到现有原生应用\",\n                    \"mdlink\": \"integration-with-existing-apps\"\n                },\n                {\n                    \"subject\": \"颜色\",\n                    \"mdlink\": \"colors\"\n                },\n                {\n                    \"subject\": \"图片\",\n                    \"mdlink\": \"images\"\n                },\n                {\n                    \"subject\": \"处理触摸事件\",\n                    \"mdlink\": \"handling-touches\"\n                },\n                {\n                    \"subject\": \"动画\",\n                    \"mdlink\": \"animations\"\n                },\n                {\n                    \"subject\": \"无障碍功能\",\n                    \"mdlink\": \"accessibility\"\n                },\n                {\n                    \"subject\": \"定时器\",\n                    \"mdlink\": \"timers\"\n                },\n                {\n                    \"subject\": \"直接操作\",\n                    \"mdlink\": \"direct-manipulation\"\n                },\n                {\n                    \"subject\": \"调试\",\n                    \"mdlink\": \"debugging\"\n                },\n                {\n                    \"subject\": \"自动化测试\",\n                    \"mdlink\": \"testing\"\n                },\n                {\n                    \"subject\": \"JavaScript环境\",\n                    \"mdlink\": \"javascript-environment\"\n                },\n                {\n                    \"subject\": \"导航器对比\",\n                    \"mdlink\": \"navigation\"\n                },\n                {\n                    \"subject\": \"性能\",\n                    \"mdlink\": \"performance\"\n                },\n                {\n                    \"subject\": \"升级\",\n                    \"mdlink\": \"upgrading\"\n                },\n                {\n                    \"subject\": \"特定平台代码\",\n                    \"mdlink\": \"platform-specific-code\"\n                },\n                {\n                    \"subject\": \"手势响应系统\",\n                    \"mdlink\": \"gesture-responder-system\"\n                }\n            ]\n        },\n        {\n            \"group\": \"社区资源\",\n            \"contains\": [\n                {\n                    \"subject\": \"中文视频教程\",\n                    \"external\": \"/videos.html\"\n                },\n                {\n                    \"subject\": \"js.coach第三方组件库\",\n                    \"external\": \"https://js.coach/react-native\"\n                },\n                {\n                    \"subject\": \"中文论坛组件分享区\",\n                    \"external\": \"http://bbs.reactnative.cn/category/5\"\n                },\n                {\n                    \"subject\": \"中文论坛问题求助区\",\n                    \"external\": \"http://bbs.reactnative.cn/category/4\"\n                }\n            ]\n        },\n        {\n            \"group\": \"使用指南(iOS)\",\n            \"contains\": [\n                {\n                    \"subject\": \"原生模块\",\n                    \"mdlink\": \"native-modules-ios\"\n                },\n                {\n                    \"subject\": \"原生UI组件\",\n                    \"mdlink\": \"native-component-ios\"\n                },\n                {\n                    \"subject\": \"链接原生库\",\n                    \"mdlink\": \"linking-libraries-ios\"\n                },\n                {\n                    \"subject\": \"在设备上运行\",\n                    \"mdlink\": \"running-on-device-ios\"\n                },\n                {\n                    \"subject\": \"在模拟器上运行\",\n                    \"mdlink\": \"running-on-simulator-ios\"\n                },\n                {\n                    \"subject\": \"在原生和React Native间通信\",\n                    \"mdlink\": \"communication-ios\"\n                }\n            ]\n        },\n        {\n            \"group\": \"使���指南(Android)\",\n            \"contains\": [\n                {\n                    \"subject\": \"原生模块\",\n                    \"mdlink\": \"native-modules-android\"\n                },\n                {\n                    \"subject\": \"原生UI组件\",\n                    \"mdlink\": \"native-component-android\"\n                },\n                {\n                    \"subject\": \"Headless JS（后台任务）\",\n                    \"mdlink\": \"headless-js-android\"\n                },\n                {\n                    \"subject\": \"在设备上运行\",\n                    \"mdlink\": \"running-on-device-android\"\n                },\n                {\n                    \"subject\": \"打包APK\",\n                    \"mdlink\": \"signed-apk-android\"\n                },\n                {\n                    \"subject\": \"调试Android UI性能\",\n                    \"mdlink\": \"android-ui-performance\"\n                },\n                {\n                    \"subject\": \"从源代码编译React Native\",\n                    \"mdlink\": \"android-building-from-source\"\n                }\n            ]\n        },\n        {\n            \"group\": \"组件\",\n            \"contains\": [\n                {\n                    \"subject\": \"ActivityIndicator\",\n                    \"mdlink\": \"activityindicator\"\n                },\n                {\n                    \"subject\": \"Button\",\n                    \"mdlink\": \"button\"\n                },\n                {\n                    \"subject\": \"DatePickerIOS\",\n                    \"mdlink\": \"datepickerios\"\n                },\n                {\n                    \"subject\": \"DrawerLayoutAndroid\",\n                    \"mdlink\": \"drawerlayoutandroid\"\n                },\n                {\n                    \"subject\": \"FlatList\",\n                    \"mdlink\": \"flatlist\"\n                },\n                {\n                    \"subject\": \"Image\",\n                    \"mdlink\": \"image\"\n                },\n                {\n                    \"subject\": \"KeyboardAvoidingView\",\n                    \"mdlink\": \"keyboardavoidingview\"\n                },\n                {\n                    \"subject\": \"ListView\",\n                    \"mdlink\": \"listview\"\n                },\n                {\n                    \"subject\": \"ListView.DataSource\",\n                    \"mdlink\": \"listviewdatasource\"\n                },\n                {\n                    \"subject\": \"Modal\",\n                    \"mdlink\": \"modal\"\n                },\n                {\n                    \"subject\": \"Navigator\",\n                    \"mdlink\": \"navigator\"\n                },\n                {\n                    \"subject\": \"NavigatorIOS\",\n                    \"mdlink\": \"navigatorios\"\n                },\n                {\n                    \"subject\": \"Picker\",\n                    \"mdlink\": \"picker\"\n                },\n                {\n                    \"subject\": \"PickerIOS\",\n                    \"mdlink\": \"pickerios\"\n                },\n                {\n                    \"subject\": \"ProgressBarAndroid\",\n                    \"mdlink\": \"progressbarandroid\"\n                },\n                {\n                    \"subject\": \"ProgressViewIOS\",\n                    \"mdlink\": \"progressviewios\"\n                },\n                {\n                    \"subject\": \"RefreshControl\",\n                    \"mdlink\": \"refreshcontrol\"\n                },\n                {\n                    \"subject\": \"ScrollView\",\n                    \"mdlink\": \"scrollview\"\n                },\n                {\n                    \"subject\": \"SectionList\",\n                    \"mdlink\": \"sectionlist\"\n                },\n                {\n                    \"subject\": \"SegmentedControlIOS\",\n                    \"mdlink\": \"segmentedcontrolios\"\n                },\n                {\n                    \"subject\": \"Slider\",\n                    \"mdlink\": \"slider\"\n                },\n                {\n                    \"subject\": \"StatusBar\",\n                    \"mdlink\": \"statusbar\"\n                },\n                {\n                    \"subject\": \"Switch\",\n                    \"mdlink\": \"switch\"\n                },\n                {\n                    \"subject\": \"TabBarIOS\",\n                    \"mdlink\": \"tabbarios\"\n                },\n                {\n                    \"subject\": \"TabBarIOS.Item\",\n                    \"mdlink\": \"tabbarios-item\"\n                },\n                {\n                    \"subject\": \"Text\",\n                    \"mdlink\": \"text\"\n                },\n                {\n                    \"subject\": \"TextInput\",\n                    \"mdlink\": \"textinput\"\n                },\n                {\n                    \"subject\": \"ToolbarAndroid\",\n                    \"mdlink\": \"toolbarandroid\"\n                },\n                {\n                    \"subject\": \"TouchableHighlight\",\n                    \"mdlink\": \"touchablehighlight\"\n                },\n                {\n                    \"subject\": \"TouchableNativeFeedback\",\n                    \"mdlink\": \"touchablenativefeedback\"\n                },\n                {\n                    \"subject\": \"TouchableOpacity\",\n                    \"mdlink\": \"touchableopacity\"\n                },\n                {\n                    \"subject\": \"TouchableWithoutFeedback\",\n                    \"mdlink\": \"touchablewithoutfeedback\"\n                },\n                {\n                    \"subject\": \"View\",\n                    \"mdlink\": \"view\"\n                },\n                {\n                    \"subject\": \"ViewPagerAndroid\",\n                    \"mdlink\": \"viewpagerandroid\"\n                },\n                {\n                    \"subject\": \"VirtualizedList\",\n                    \"mdlink\": \"virtualizedlist\"\n                },\n                {\n                    \"subject\": \"WebView\",\n                    \"mdlink\": \"webview\"\n                }\n            ]\n        },\n        {\n            \"group\": \"API\",\n            \"contains\": [\n                {\n                    \"subject\": \"ActionSheetIOS\",\n                    \"mdlink\": \"actionsheetios\"\n                },\n                {\n                    \"subject\": \"AdSupportIOS\",\n                    \"mdlink\": \"adsupportios\"\n                },\n                {\n                    \"subject\": \"Alert\",\n                    \"mdlink\": \"alert\"\n                },\n                {\n                    \"subject\": \"AlertIOS\",\n                    \"mdlink\": \"alertios\"\n                },\n                {\n                    \"subject\": \"Animated\",\n                    \"mdlink\": \"animated\"\n                },\n                {\n                    \"subject\": \"AppRegistry\",\n                    \"mdlink\": \"appregistry\"\n                },\n                {\n                    \"subject\": \"AppState\",\n                    \"mdlink\": \"appstate\"\n                },\n                {\n                    \"subject\": \"AsyncStorage\",\n                    \"mdlink\": \"asyncstorage\"\n                },\n                {\n                    \"subject\": \"BackAndroid\",\n                    \"mdlink\": \"backandroid\"\n                },\n                {\n                    \"subject\": \"CameraRoll\",\n                    \"mdlink\": \"cameraroll\"\n                },\n                {\n                    \"subject\": \"Clipboard\",\n                    \"mdlink\": \"clipboard\"\n                },\n                {\n                    \"subject\": \"DatePickerAndroid\",\n                    \"mdlink\": \"datepickerandroid\"\n                },\n                {\n                    \"subject\": \"Dimensions\",\n                    \"mdlink\": \"dimensions\"\n                },\n                {\n                    \"subject\": \"Easing\",\n                    \"mdlink\": \"easing\"\n                },\n                {\n                    \"subject\": \"Geolocation\",\n                    \"mdlink\": \"geolocation\"\n                },\n                {\n                    \"subject\": \"ImageEditor\",\n                    \"mdlink\": \"imageeditor\"\n                },\n                {\n                    \"subject\": \"ImagePickerIOS\",\n                    \"mdlink\": \"imagepickerios\"\n                },\n                {\n                    \"subject\": \"ImageStore\",\n                    \"mdlink\": \"imagestore\"\n                },\n                {\n                    \"subject\": \"InteractionManager\",\n                    \"mdlink\": \"interactionmanager\"\n                },\n                {\n                    \"subject\": \"Keyboard\",\n                    \"mdlink\": \"keyboard\"\n                },\n                {\n                    \"subject\": \"LayoutAnimation\",\n                    \"mdlink\": \"layoutanimation\"\n                },\n                {\n                    \"subject\": \"Linking\",\n                    \"mdlink\": \"linking\"\n                },\n                {\n                    \"subject\": \"NativeMethodsMixin\",\n                    \"mdlink\": \"nativemethodsmixin\"\n                },\n                {\n                    \"subject\": \"NetInfo\",\n                    \"mdlink\": \"netinfo\"\n                },\n                {\n                    \"subject\": \"PanResponder\",\n                    \"mdlink\": \"panresponder\"\n                },\n                {\n                    \"subject\": \"PermissionsAndroid\",\n                    \"mdlink\": \"permissionsandroid\"\n                },\n                {\n                    \"subject\": \"PixelRatio\",\n                    \"mdlink\": \"pixelratio\"\n                },\n                {\n                    \"subject\": \"PushNotificationIOS\",\n                    \"mdlink\": \"pushnotificationios\"\n                },\n                {\n                    \"subject\": \"Share\",\n                    \"mdlink\": \"share\"\n                },\n                {\n                    \"subject\": \"StyleSheet\",\n                    \"mdlink\": \"stylesheet\"\n                },\n                {\n                    \"subject\": \"Systrace\",\n                    \"mdlink\": \"systrace\"\n                },\n                {\n                    \"subject\": \"TimePickerAndroid\",\n                    \"mdlink\": \"timepickerandroid\"\n                },\n                {\n                    \"subject\": \"ToastAndroid\",\n                    \"mdlink\": \"toastandroid\"\n                },\n                {\n                    \"subject\": \"Vibration\",\n                    \"mdlink\": \"vibration\"\n                },\n                {\n                    \"subject\": \"布局样式属性\",\n                    \"mdlink\": \"layout-props\"\n                },\n                {\n                    \"subject\": \"阴影样式属性\",\n                    \"mdlink\": \"shadow-props\"\n                }\n            ]\n        }\n    ]\n}\n","/static/docs/0.43/getting-started.md":"欢迎使用React Native！这篇文档会帮助你搭建基本的React Native开发环境。如果你已经搭好了环境，那么可以尝试一下[编写Hello World](tutorial.html)。\n\n根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发iOS和Android也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。\n\n如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。\n\n<div class=\"toggler\">\n<style>\n.toggler {\n  margin-bottom: 10px;\n}\n.toggler a {\n  cursor: pointer;\n  display: inline-block;\n  padding: 10px 5px;\n  margin: 2px;\n  border: 1px solid #05A5D1;\n  border-radius: 3px;\n  text-decoration: none !important;\n}\n.display-os-mac .toggler .button-mac,\n.display-os-linux .toggler .button-linux,\n.display-os-windows .toggler .button-windows,\n.display-platform-ios .toggler .button-ios,\n.display-platform-android .toggler .button-android {\n  background-color: #05A5D1;\n  color: white;\n}\n.md-block { display: none; }\n.md-block img { max-width:650px; }\n.display-platform-ios.display-os-mac .ios.mac,\n.display-platform-ios.display-os-linux .ios.linux,\n.display-platform-ios.display-os-windows .ios.windows,\n.display-platform-android.display-os-mac .android.mac,\n.display-platform-android.display-os-linux .android.linux,\n.display-platform-android.display-os-windows .android.windows {\n  display: block;\n}\n</style>\n<span>目标平台：</span>\n<a class=\"button-ios\" onclick=\"display('platform', 'ios')\">iOS</a>\n<a class=\"button-android\" onclick=\"display('platform', 'android')\">Android</a>\n<span>开发平台：</span>\n<a class=\"button-mac\" onclick=\"display('os', 'mac')\">macOS</a>\n<a class=\"button-linux\" onclick=\"display('os', 'linux')\">Linux</a>\n<a class=\"button-windows\" onclick=\"display('os', 'windows')\">Windows</a>\n</div>\n\n<!-- ######### LINUX AND WINDOWS for iOS ##################### -->\n\n<div markdown class=\"md-block linux windows ios\">\n\n## 暂不支持\n\n苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑先开发Android应用了。\n\n![](img/react-native-sorry-not-supported.png)\n\n\n<!-- ######### MAC for iOS ##################### -->\n\n</div><div markdown class=\"md-block mac ios android\" >\n\n## 安装\n\n### 必需的软件\n\n#### Homebrew\n\n[Homebrew](http://brew.sh/), Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件。\n\n```\n/usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"\n```\n\n译注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到`/usr/local`目录不可写的权限问题。可以使用下面的命令修复：  \n\n```bash\nsudo chown -R `whoami` /usr/local\n```\n\n#### Node\n\n使用Homebrew来安装[Node.js](https://nodejs.org/).\n\n> React Native目前需要NodeJS 5.0或更高版本。本文发布时Homebrew默认安装的是最新版本，一般都满足要求。 \n\n```\nbrew install node\n```\n\n安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别！\n\n```\nnpm config set registry https://registry.npm.taobao.org --global\nnpm config set disturl https://npm.taobao.org/dist --global\n```\n\n#### Yarn、React Native的命令行工具（react-native-cli）\n\n[Yarn](http://yarnpkg.com)是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。\n\n```\nnpm install -g yarn react-native-cli\n```\n\n安装���yarn后同理也要设置镜像源：\n\n```\nyarn config set registry https://registry.npm.taobao.org --global\nyarn config set disturl https://npm.taobao.org/dist --global\n```\n\n\n如果你看到`EACCES: permission denied`这样的权限报错，那么请参照上文的homebrew译注，修复`/usr/local`目录的所有权：  \n\n```bash\nsudo chown -R `whoami` /usr/local\n```\n\n</div><div markdown class=\"md-block mac ios\">\n\n#### Xcode\n\nReact Native目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 8.0 或更高版本。你可以通过App Store或是到[Apple开发者官网](https://developer.apple.com/xcode/downloads/)上下载。这一步骤会同时安装Xcode IDE和Xcode的命令行工具。\n\n> 虽然一般来说命令行工具都是默认安装了，但你最好还是启动Xcode，并在`Xcode | Preferences | Locations`菜单中检查一下是否装有某个版本的`Command Line Tools`。Xcode的命令行工具中也包含一些必须的工具，比如`git`等。\n\n</div><div markdown class=\"md-block mac android\" >\n\n#### Android Studio\n\nReact Native目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0或更高版本。\n\n> Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入\n> `javac -version`来查看你当前安装的JDK版本。如果版本不合要求，则可以到\n> [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。\n\nAndroid Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。\n\n> 除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了\n> `Android Support Repository`，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。\n\n安装过程中有一些需要改动的选项：\n\n- 选择`Custom`选项：\n\n![custom installation](img/react-native-android-studio-custom-install.png)\n\n- 勾选`Performance`和`Android Virtual Device`\n\n![additional installs](img/react-native-android-studio-additional-installs.png)\n\n- 安装完成后，在Android Studio的启动欢迎界面中选择`Configure | SDK Manager`。\n\n![configure sdk](img/react-native-android-studio-configure-sdk.png)\n\n- 在`SDK Platforms`窗口中，选择`Show Package Details`，然后在`Android 6.0 (Marshmallow)`中勾选`Google APIs`、`Android SDK Platform 23`、`Intel x86 Atom_64 System Image`以及`Google APIs Intel x86 Atom_64 System Image`。\n\n![platforms](img/react-native-android-studio-android-sdk-platforms.png)\n\n- 在`SDK Tools`窗口中，选择`Show Package Details`，然后在`Android SDK Build Tools`中勾选`Android SDK Build-Tools 23.0.1`（必须是这个版本）。然后还要勾选最底部的`Android Support Repository`.\n\n![build tools](img/react-native-android-studio-android-sdk-build-tools.png)\n\n#### ANDROID_HOME环境变量\n\n确保`ANDROID_HOME`环境变量正确地指向了你安装的Android SDK的路径。具体的做法是把下面的命令加入到`~/.bash_profile`文件中：(__译注__：~表示用户目录，即`/Users/你的用户名/`，而小数点开头的文件在Finder中是隐藏的，并且这个文件有可能并不存在。请在终端下使用`vi ~/.bash_profile`命令创建或编辑。如不熟悉vi操作，请点击[这里](http://www.eepw.com.cn/article/48018.htm)学习）  \n\n```\n# 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。\nexport ANDROID_HOME=~/Library/Android/sdk\n```\n\n然后使用下列命令使其立即生效（否则重启后才生效）：  \n\n```bash\nsource ~/.bash_profile\n```\n\n可以使用`echo $ANDROID_HOME`检查此变量是否已正确设置。\n\n</div>\n<div markdown class=\"md-block mac ios android\">\n\n### 推荐安装的工具\n\n#### Watchman\n\n[Watchman](https://facebook.github.io/watchman/docs/install.html)是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。\n\n```\nbrew install watchman\n```\n\n#### Flow\n\n[Flow](http://www.flowtype.org)是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的���号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。\n\n\n```\nbrew install flow\n```\n\n</div><div markdown class=\"md-block mac android\">\n\n#### 将Android SDK的Tools目录添加到`PATH`变量中\n\n你可以把Android SDK的tools和platform-tools目录添加到`PATH`变量中，以便在终端中运行一些Android工具，例如`android avd`或是`adb logcat`等。具体做法仍然是在`~/.bash_profile`中添加：\n\n```\nexport PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools\n```\n\n### 其他可选的安装项\n\n#### Git\n\nGit版本控制。如果你已经安装过[Xcode](https://developer.apple.com/xcode/)，则Git也已经一并安装了。如若没有，则使用下列命令安装：\n\n```\nbrew install git\n```\n\n</div><div markdown class=\"md-block mac ios android\">\n\n#### Nuclide\n\n[Nuclide](http://nuclide.io)（此链接需要科学上网）是由Facebook提供的基于atom的集成开发环境，可用于编写、[运行](http://nuclide.io/docs/platforms/react-native/#running-applications)和\n[调试](http://nuclide.io/docs/platforms/react-native/#debugging)React Native应用。\n\n点击这里阅读[Nuclide的入门文档](http://nuclide.io/docs/quick-start/getting-started/)。\n\n译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写React Native应用。\n\n</div><div markdown class=\"md-block mac android\">\n\n#### Genymotion\n\n比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。\n\n1. 下载和安装[Genymotion](https://www.genymotion.com/download)（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。\n2. 打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。\n3. 创建一个新模拟器并启动。\n4. 启动React Native应用后，可以按下⌘+M来打开开发者菜单。\n\n</div>\n<div markdown class=\"md-block linux windows android\">\n\n## 安装\n\n### 必需的软件\n\n</div><div markdown class=\"md-block windows android\">\n\n#### Chocolatey\n\n[Chocolatey](https://chocolatey.org)是一个Windows上的包管理器，类似于linux上的`yum`和\n`apt-get`。 你可以在其[官方网站](https://chocolatey.org)上查看具体的使用说明。一般的安装步骤应该是下面这样：\n\n```\n@powershell -NoProfile -ExecutionPolicy Bypass -Command \"iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))\" && SET PATH=%PATH%;%ALLUSERSPROFILE%\\chocolatey\\bin\n```\n\n> 一般来说，使用Chocolatey来安装软件的时候，需要以管理员的身份来运行命令提示符窗口。译注：chocolatey的网站可能在国内访问困难，导致上述安装命令无法正常完成。请使用稳定的翻墙工具。\n> 如果你实在装不上这个工具，也不要紧。下面所需的python2和nodejs你可以分别单独去对应的官方网站下载安装即可。\n\n#### Python 2\n\n打开命令提示符窗口，使用Chocolatey来安装Python 2.\n\n> 注意目前不支持Python 3版本。\n\n```\nchoco install python2\n```\n\n</div><div markdown class=\"md-block linux windows android\">\n\n#### Node\n\n</div><div markdown class=\"md-block linux android\">\n\n打开终端窗口，输入下面的命令来安装NodeJS:\n\n```\nsudo apt-get install -y build-essential\ncurl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -\nsudo apt-get install -y nodejs\nsudo ln -s /usr/bin/nodejs /usr/bin/node\n```\n\n\n</div><div markdown class=\"md-block windows android\">\n\n打开命令提示符窗口，使用Chocolatey来安装NodeJS。注意，目前已知Node 7.1版本在windows上无法正常工作，请避开这个版本！\n\n```\nchoco install nodejs.install\n```\n\n安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别！\n\n```\nnpm config set registry https://registry.npm.taobao.org --global\nnpm config set disturl https://npm.taobao.org/dist --global\n```\n\n</div><div markdown class=\"md-block windows linux android\">\n\n#### Yarn、React Native的命令行工具（react-native-cli）\n\n[Yarn](http://yarnpkg.com)是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。\n\n```\nnpm install -g yarn react-native-cli\n```\n\n安装完yarn后同理也要设置镜像源：\n\n```\nyarn config set registry https://registry.npm.taobao.org --global\nyarn config set disturl https://npm.taobao.org/dist --global\n```\n\n> 如果你遇到`EACCES: permission denied`权限错误，可以尝试运行下面的命令（限linux系统）：\n> `sudo npm install -g yarn react-native-cli`.\n\n#### Android Studio\n\n[Android Studio](http://developer.android.com/sdk/index.html) 2.0 or higher.\n\nReact Native目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0或更高版本。\n\n> Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入\n> `javac -version`来查看你当前安装的JDK版本。如果版本不合要求，则可以到\n> [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。\n> 或是使用包管理器来安装（比如`choco install jdk8`或是\n> `apt-get install default-jdk`）\n\nAndroid Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。\n\n> 除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了\n> `Android Support Repository`，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。\n\n</div><div markdown class=\"md-block linux android\">\n\n安装过程中有一些需要改动的选项：\n\n- 选择`Custom`选项：\n\n![custom installation](img/react-native-android-studio-custom-install-linux.png)\n\n- 选择`Android Virtual Device`\n\n![additional installs](img/react-native-android-studio-additional-installs-linux.png)\n\n</div><div markdown class=\"md-block windows android\">\n\n- 确定所有安装都勾选了，尤其是`Android SDK`和`Android Device Emulator`。\n\n- 在初步安装完成后，选择`Custom`安装项：\n\n![custom installation](img/react-native-android-studio-custom-install-windows.png)\n\n- 检查已安装的组件，尤其是模拟器和HAXM加速驱动。\n\n![verify installs](img/react-native-android-studio-verify-installs-windows.png)\n\n</div><div markdown class=\"md-block windows linux android\">\n\n- 安装完成后，在Android Studio的欢迎界面中选择`Configure | SDK Manager`。\n\n</div><div markdown class=\"md-block linux android\">\n\n![configure sdk](img/react-native-android-studio-configure-sdk-linux.png)\n\n</div><div markdown class=\"md-block windows android\">\n\n![configure sdk](img/react-native-android-studio-configure-sdk-windows.png)\n\n</div><div markdown class=\"md-block windows linux android\">\n\n- 在`SDK Platforms`窗口中，选择`Show Package Details`，然后在`Android 6.0 (Marshmallow)`中勾选`Google APIs`、`Android SDK Platform 23`、`Intel x86 Atom System Image`、`Intel x86 Atom_64 System Image`以及`Google APIs Intel x86 Atom_64 System Image`。\n\n</div><div markdown class=\"md-block linux android\">\n\n![platforms](img/react-native-android-studio-android-sdk-platforms-linux.png)\n\n</div><div markdown class=\"md-block windows android\">\n\n![platforms](img/react-native-android-studio-android-sdk-platforms-windows.png)\n\n</div><div markdown class=\"md-block windows linux android\">\n\n- 在`SDK Tools`窗口中，选择`Show Package Details`，然后在`Android SDK Build Tools`中勾选`Android SDK Build-Tools 23.0.1`（必须是这个版本）。然后还要勾选最底部的`Android Support Repository`.\n\n</div><div markdown class=\"md-block linux android\">\n\n![build tools](img/react-native-android-studio-android-sdk-build-tools-linux.png)\n\n</div><div markdown class=\"md-block windows android\">\n\n![build tools](img/react-native-android-studio-android-sdk-build-tools-windows.png)\n\n</div><div markdown class=\"md-block windows linux android\">\n\n\n#### ANDROID_HOME环境变量\n\n确保`ANDROID_HOME`环境变量正确地指向了你安装的Android SDK的路径。\n\n</div><div markdown class=\"md-block linux android\">\n\n具体的做法是把下面的命令加入到`~/.bashrc`、`~/.bash_profile`文件中。如果你使用的是其他的shell，则选择对应的配置文件:\n\n```\n# 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。\nexport ANDROID_HOME=~/Library/Android/sdk\n```\n\n然后使用下列命令使其立即生效（否则重启后才生效）：  \n\n```bash\nsource ~/.bash_profile\n```\n\n可以使用`echo $ANDROID_HOME`检查此变量是否已正确设置。\n\n</div><div markdown class=\"md-block windows android\">\n\n打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` ->\n`高级` -> `环境变量` -> `新建`\n\n> 具体的路径可能和下图不一致，请自行确认。\n\n![env variable](img/react-native-android-sdk-environment-variable-windows.png)\n\n> 你需要关闭现有的命令符提示窗口然后重新打开，这样新的环境变量才能生效。\n\n</div><div markdown class=\"md-block linux windows android\">\n\n### 推荐安装的工具\n\n</div><div markdown class=\"md-block linux android\">\n\n#### Watchman\n\n[Watchman](https://facebook.github.io/watchman/docs/install.html)是由Facebook提供的监视文件系统变更的工具。安装此工具可以提���开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。\n\n> 安装watchman还可以避免node的一个与文件监视有关的bug。\n\n在终端中输入以下命令来编译并安装watchman:\n\n```\ngit clone https://github.com/facebook/watchman.git\ncd watchman\ngit checkout v4.5.0  # 这是本文发布时的最新版本\n./autogen.sh\n./configure\nmake\nsudo make install\n```\n\n#### Flow\n\n[Flow](http://www.flowtype.org)是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。\n\n在终端中输入以下命令来安装flow:\n\n```\nnpm install -g flow-bin\n```\n\n</div>\n<div markdown class=\"md-block mac windows linux android\">\n\n#### Gradle Daemon\n\n开启[Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html)可以极大地提升java代码的增量编译速度。\n\n</div>\n<div markdown class=\"md-block mac linux android\">\n\n```\ntouch ~/.gradle/gradle.properties && echo \"org.gradle.daemon=true\" >> ~/.gradle/gradle.properties\n```\n\n</div>\n<div markdown class=\"md-block windows android\">\n\n```\n(if not exist \"%USERPROFILE%/.gradle\" mkdir \"%USERPROFILE%/.gradle\") && (echo org.gradle.daemon=true >> \"%USERPROFILE%/.gradle/gradle.properties\")\n```\n\n</div>\n<div markdown class=\"md-block linux android\">\n\n#### Android模拟器加速器\n\n在安装Android Studio时你可能会看到下面这样的提示：\n\n![accelerator](img/react-native-android-studio-kvm-linux.png)\n\n如果你的系统支持KVM，那就应该安装[Intel的Android模拟器加速器](https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272)。\n\n</div><div markdown class=\"md-block windows linux android\">\n\n#### 将Android SDK的Tools目录添加到`PATH`变量中\n\n你可以把Android SDK的tools和platform-tools目录添加到`PATH`变量中，以便在终端中运行一些Android工具，例如`android avd`或是`adb logcat`等。\n\n</div><div markdown class=\"md-block linux android\">\n\n在`~/.bashrc`或是`~/.bash_profile`文件中添加：\n\n```\n# 你的具体路径可能有所不同，请自行确认。\nPATH=\"~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}\"\nexport PATH\n```\n\n</div><div markdown class=\"md-block windows android\">\n\n打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` ->\n`高级` -> `环境变量` -> 选中`PATH` -> 双击进行编辑\n\n> 注意你的具体路径可能和下图不同\n\n![env variable](img/react-native-android-tools-environment-variable-windows.png)\n\n</div><div markdown class=\"md-block windows linux android\">\n\n### 可选的安装项\n\n#### Git\n\n</div><div markdown class=\"md-block linux android\">\n\n[使用包管理器](https://git-scm.com/download/linux)来安装Git\n(例如`sudo apt-get install git-all`).\n\n</div><div markdown class=\"md-block windows android\">\n\n你可以使用Chocolatey来安装`git`:\n\n```\nchoco install git\n```\n\n另外你也可以直接去下载[Git for Windows](https://git-for-windows.github.io/)。\n在安装过程中注意勾选\"Run Git from Windows Command Prompt\"，这样才会把`git`命令添加到`PATH`环境变量中。\n\n</div><div markdown class=\"md-block linux android\">\n\n#### Nuclide\n\n[Nuclide](http://nuclide.io)（此链接需要科学上网）是由Facebook提供的基于atom的集成开发环境，可用于编写、[运行](http://nuclide.io/docs/platforms/react-native/#running-applications)和\n[调试](http://nuclide.io/docs/platforms/react-native/#debugging)React Native应用。\n\n点击这里阅读[Nuclide的入门文档](http://nuclide.io/docs/quick-start/getting-started/)。\n\n译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写React Native应用。\n\n</div><div markdown class=\"md-block linux windows android\">\n\n#### Genymotion\n\n比起Android Studio自带的原装模拟器，Genymotion是一���性能更好的选择，但它只对个人用户免费。\n\n1. 下载和安装[Genymotion](https://www.genymotion.com/download)（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。\n2. 打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。\n3. 创建一个新模拟器并启动。\n4. 启动React Native应用后，可以按下F1来打开开发者菜单。\n\n</div><div markdown class=\"md-block windows android\">\n\n#### Visual Studio Emulator for Android\n\n[Visual Studio Emulator for Android](https://www.visualstudio.com/zh-cn/features/msft-android-emulator-vs.aspx#中国 (简体中文))是利用了Hyper-V技术进行硬件加速的免费android模拟器。也是Android Studio自带的原装模拟器之外的一个很好的选择。而且你并不需要安装Visual Studio。\n在用于React Native开发前，需要先在注册表中进行一些修改：\n\n1. 打开运行命令（按下Windows+R键）\n2. 输入`regedit.exe`然后回车\n3. 在注册表编辑器中找到`HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Android SDK Tools`条目\n4. 右键点击`Android SDK Tools`，选择`新建 > 字符串值`\n5. 名称设为`Path`\n6. 双击`Path`，将其值设为你的Android SDK的路径。（例如`C:\\Program Files\\Android\\sdk`）\n\n</div>\n<div markdown class=\"md-block mac ios android\">\n\n## 测试安装\n\n</div><div markdown class=\"md-block mac ios\">\n\n```\nreact-native init AwesomeProject\ncd AwesomeProject\nreact-native run-ios\n```\n\n> 提示：你可以使用`--version`参数创建指定版本的项目。例如`react-native init MyApp --version 0.39.2`。注意版本号必须精确到两个小数点。\n\n你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹\n然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)，或是双击`ios/AwesomeProject.xcodeproj`文件然后在Xcode中点击`Run`按钮。\n\n</div><div markdown class=\"md-block mac android\">\n\n```\nreact-native init AwesomeProject\ncd AwesomeProject\nreact-native run-android\n```\n\n> 提示：你可以使用`--version`参数创建指定版本的项目。例如`react-native init MyApp --version 0.39.2`。注意版本号必须精确到两个小数点。\n\n你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)。\n\n</div><div markdown class=\"md-block mac ios android\">\n\n### 修改项目\n\n现在你已经成功运行了项目，我们可以开始尝试动手改一改了：\n\n</div><div markdown class=\"md-block mac ios\">\n\n- 使用你喜欢的编辑器打开`index.ios.js`���随便改上几行。\n- 在iOS Emulator中按下`⌘-R`就可以刷新APP并看到你的最新修改！\n\n</div><div markdown class=\"md-block mac android\">\n\n- 使用你喜欢的文本编辑器打开`index.android.js`并随便改上几行\n- 按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是`⌘+M`）打开开发者菜单，然后选择 *Reload JS* 就可以看到你的最新修改。\n- 在终端下运行`adb logcat *:S ReactNative:V ReactNativeJS:V`可以看到你的应用的日志。\n\n</div><div markdown class=\"md-block mac ios android\">\n\n### 完成了！\n\n恭喜！你已经成功运行并修改了你的第一个React Native应用。\n\n![](img/react-native-congratulations.png)\n\n</div><div markdown class=\"md-block windows linux android\">\n\n## 测试安装\n\n```\nreact-native init AwesomeProject\ncd AwesomeProject\nreact-native run-android\n```\n\n> 提示：你可以使用`--version`参数创建指定版本的项目。例如`react-native init MyApp --version 0.39.2`。注意版本号必须精确到两个小数点。\n\n__Windows用户请注意，请不要在命令行默认的System32目录中init项目！会有各种权限限制导致不能运行！__\n</div>\n<div markdown class=\"md-block windows linux android\">\n\n### 修改项目\n\n现在你已经成功运行了项目，我们可以开始尝试动手改一改了：\n\n- 使用你喜欢的文本编辑器打开`index.android.js`并随便改上几行\n- 按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是`⌘+M`）打开开发者菜单，然后选择 *Reload JS* 就可以看到你的最新修改。\n- 在终端下运行`adb logcat *:S ReactNative:V ReactNativeJS:V`可以看到你的应用的日志。\n\n### 完成了！\n\n恭喜！你已经成功运行并修改了你的第一个React Native应用。\n\n![](img/react-native-congratulations.png)\n\n</div><div markdown class=\"md-block mac ios android\">\n\n## 接下来\n\n</div><div markdown class=\"md-block mac ios\">\n\n- 如果你想要在真机上运行应用，请参阅[在设备上运行](running-on-device-ios.html#content)。\n\n</div><div markdown class=\"md-block mac android\">\n\n- 如果你想要在真机上运行应用，请参阅[在设备上运行](running-on-device-android.html#content)。\n\n</div><div markdown class=\"md-block mac ios android\">\n\n- 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。\n\n\n</div><div markdown class=\"md-block windows linux android\">\n\n## 接下来\n\n- 如果你想要在真机上运行应用，请参阅[在设备上运行](running-on-device-android.html#content)。\n\n- 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。\n\n</div>\n<script class=\"markdown-script\">\nwindow.display = function (type, value) {\n  var container = document.querySelector('.md-block').parentNode;\n  container.className = 'display-' + type + '-' + value + ' ' +\n    container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');\n}\n\n// If we are coming to the page with a hash in it (i.e. from a search, for example), try to get\n// us as close as possible to the correct platform and dev os using the hashtag and block walk up.\nvar foundHash = false;\nif (window.location.hash !== '' && window.location.hash !== 'content') { // content is default\n  var hashLinks = document.querySelectorAll('a.hash-link');\n  for (var i = 0; i < hashLinks.length && !foundHash; ++i) {\n    if (hashLinks[i].hash === window.location.hash) {\n      var parent = hashLinks[i].parentElement;\n      while (parent) {\n        if (parent.tagName === 'BLOCK') {\n          var devOS = null;\n          var targetPlatform = null;\n          // Could be more than one target os and dev platform, but just choose some sort of order\n          // of priority here.\n    \n          // Dev OS\n          if (parent.className.indexOf('mac') > -1) {\n            devOS = 'mac';\n          } else if (parent.className.indexOf('linux') > -1) {\n            devOS = 'linux';\n          } else if (parent.className.indexOf('windows') > -1) {\n            devOS = 'windows';\n          } else {\n            break; // assume we don't have anything.\n          }\n    \n          // Target Platform\n          if (parent.className.indexOf('ios') > -1) {\n            targetPlatform = 'ios';\n          } else if (parent.className.indexOf('android') > -1) {\n            targetPlatform = 'android';\n          } else {\n            break; // assume we don't have anything.\n          }\n          // We would have broken out if both targetPlatform and devOS hadn't been filled.\n          display('os', devOS);\n          display('platform', targetPlatform);      \n          foundHash = true;\n          break;\n        }\n        parent = parent.parentElement;\n      }\n    }\n  }\n}\n// Do the default if there is no matching hash\nif (!foundHash) {\n  var isMac = navigator.platform === 'MacIntel';\n  var isWindows = navigator.platform === 'Win32';\n  display('os', isMac ? 'mac' : (isWindows ? 'windows' : 'linux'));\n  display('platform', isMac ? 'ios' : 'android');\n}\n<\/script>\n"}</script>
+  <script>var duoshuoQuery = {short_name:"reactnative"}</script>
+  <script src="//static.duoshuo.com/embed.js"></script>
+  <script src="/scripts/index.be52f13c77b9e98c2b66.js" async></script>
+</body>
+</html>
