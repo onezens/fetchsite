@@ -9,17 +9,12 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-<<<<<<< HEAD
+
 // var fetchUrl = 'http://v3.bootcss.com/css/';
 var baseUrl = 'http://v3.bootcss.com/css';
 var savePathName = 'bootcss'; //保存在本地的目录
-
 var startFetchCount = 20; //最大抓取连接的个数
 
-=======
-var fetchUrl = 'http://reactnative.cn/docs/0.43/getting-started.html';
-var fetchName = 'reactnative_docs'; //保存在本地的目录
->>>>>>> origin/master
 var entranceName = '';//入口 index.html
 
 
