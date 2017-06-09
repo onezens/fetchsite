@@ -9,19 +9,21 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-var fetchUrl = 'http://liubin.org/promises-book/';
-var fetchName = 'promises-book'; //保存在本地的目录
-var entranceName = '';//入口 index.html
-var netSpilder = fetchUrl.indexOf('https')!=-1 ? https : http;
+// var fetchUrl = 'http://v3.bootcss.com/css/';
+var baseUrl = 'http://v3.bootcss.com/css';
+var savePathName = 'bootcss'; //保存在本地的目录
 
-//var fetchUrl = 'https://npm.taobao.org/mirrors/node/latest/docs/api/';
-//var fetchName = 'node_docs'; //保存在本地的目录
-var configDir = './public/'+fetchName;
+var startFetchCount = 20; //最大抓取连接的个数
+
+var entranceName = '';//入口 index.html
+
+
+var netSpilder = baseUrl.indexOf('https')!=-1 ? https : http;
+var configDir = './public/'+ savePathName;
 var saveDir = configDir + '/site';
 var urls = null; //初始化,所有的url
 var fetchedUrls = null; //抓取过的url
-var regex = /\b(href="|src="|href=".\/)\b\S*"/g; //g 遍历所有,正则匹配所有
-var startFetchCount = 20; //最大抓取连接的个数
+var regex = /\b(href="|src="|href=")\S*"/g; //g 遍历所有,正则匹配所有
 var currentFetchIndex = 0; //当前正在抓取的索引
 var tempFileName = 'temp.json'; //抓取到的所有连接的文件名
 var fetchedFileName = 'fetchedinfo.json'; //抓去过的连接文件名
@@ -187,7 +189,7 @@ function getFetchURL(url){
         return null;
     }
 
-    return fetchUrl + operateFetchURL(url);
+    return baseUrl + operateFetchURL(url);
 }
 
 function operateFetchURL(url){
@@ -210,6 +212,12 @@ function saveData(savePath, saveName, data, cb){
         makeDirsSync(savePath);
     }
     savePath = path.join(savePath, saveName);
+
+    if (path.basename(savePath).indexOf('.') == -1){
+        makeDirsSync(savePath);
+        savePath = path.join(savePath, 'index.html')
+        console.log('----------->  ' + savePath);
+    }
 
     fs.writeFile(savePath, data, function(err){
         if(err){
@@ -286,7 +294,6 @@ function makeDirsSync(dirPath) {
     }catch(err){
         var dirComponent = path.relative(__dirname, dirPath);
         var dirComArr = dirComponent.split('/');
-        //console.log(dirComArr);
         var dirName= __dirname;
         dirComArr.forEach(function(dirCom){
             dirName = path.join(dirName, dirCom);
