@@ -11,7 +11,7 @@ const path = require('path');
 
 
 // var fetchUrl = 'http://v3.bootcss.com/css/';
-var baseUrl = 'http://v3.bootcss.com/css';
+var baseUrl = 'https://v3.bootcss.com/css/';
 var savePathName = 'bootcss'; //保存在本地的目录
 var startFetchCount = 20; //最大抓取连接的个数
 
