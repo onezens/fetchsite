@@ -8,10 +8,13 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const iconv = require('iconv-lite');
+const BufferHelper = require('bufferhelper');
+
 
 
 // var fetchUrl = 'http://v3.bootcss.com/css/';
-var baseUrl = 'https://v3.bootcss.com/css/';
+var baseUrl = 'http://v3.bootcss.com/';
 var savePathName = 'bootcss'; //保存在本地的目录
 var startFetchCount = 20; //最大抓取连接的个数
 
@@ -38,7 +41,7 @@ function fetch() {
     console.log('start fetch ...');
     if(urls.relativeUrls.length == 0) {
         fetchURL(entranceName, true);
-    }else if(urls.relativeUrls.length == fetchedUrls.length){
+    }else if(urls.relativeUrls.length == (fetchedUrls.successUrls.length + fetchedUrls.failedUrls.length)){
         console.log('all source fetched!');
         exitApp();
     }else {
@@ -65,8 +68,7 @@ function fetchRun(){
 // isEntrance 是不是入口,是入口则调用fetchRun(),
 // 不是则根据currentFetchIndex获取要抓取的url
 function fetchURL(url, isEntrance){
-
-    if(fetchedUrls.indexOf(url) == -1){ //防止重复获取
+    if(isGotoFetch(url)){ //防止重复获取
         var endUrl = getFetchURL(url)
         if(!endUrl) return;
         console.log('\nstart fetch: ' + endUrl);
@@ -82,10 +84,20 @@ function fetchURL(url, isEntrance){
             }else {
                 console.log(endUrl + " : " + res.statusCode);
                 console.log(JSON.stringify(res.headers));
+                if (endUrl.length == 0){
+                    console.log(endUrl);
+                    goNext();
+                    return;
+                }
+                //失败的信息存储到失败的数据里
+                console.log('------ >'+url);
+                fetchedUrls.failedUrls.push(url);
+                goNext();
             }
         });
+    }else{
+        goNext();
     }
-
 }
 
 //抓取buffer类型的数据,可以是图片,视频,等二进制数据
@@ -106,21 +118,41 @@ function fetchBufferDataOperate(res, endUrl, url) {
     res.on('end',function(){
         writeStream.close();
         var item = operateFetchURL(url);
-        if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
+        if(isGotoFetch(item)) fetchedUrls.successUrls.push(item);
         console.log('\nsave success!  ' + savePath);
     });
+}
+//返回bool值，根据key判断是否抓取url
+function isGotoFetch(key) {
+
+    console.log(currentFetchIndex);
+    var newKey = key;
+
+    if (fetchedUrls.successUrls.indexOf(newKey) != -1) return false;
+
+    if (fetchedUrls.failedUrls.indexOf(newKey) != -1) return false;
+
+
+    return true;
 }
 
 //抓取文本类型的数据
 function fetchTextDataOperate(res, endUrl, url, isEntrance){
-    var data = '';
+    var bufferHelper = new BufferHelper();
     res.on('data', function(trunk){
-        if(trunk) data += trunk;
         process.stdout.write('*');
+        bufferHelper.concat(trunk);
     });
     res.on('end', function(){
+        var data = iconv.decode(bufferHelper.toBuffer(),'GBK');
+
+        //gbk 转utf8
+        data = data.replace('charset=gb2312','charset=utf-8');
+
+        data = data.replace(/'/g, '"');
         //文本类型数据处理
-        var matches = data.toString().match(regex);
+        var matches = data.match(regex);
+
         var absoluteUrls = urls.absoluteUrls;
         var relativeUrls = urls.relativeUrls;
         if(matches && matches.length>0){
@@ -141,12 +173,12 @@ function fetchTextDataOperate(res, endUrl, url, isEntrance){
         }
 
         //保存抓取的网页数据
-        saveData(getSaveDir(url), path.basename(endUrl), data.toString(), function(savepath, error){
+        saveData(getSaveDir(url), isEntrance ? 'index.html' : path.basename(endUrl), data.toString(), function(savepath, error){
             if(!error){
                 var item = operateFetchURL(url);
-                if(fetchedUrls.indexOf(item) == -1) fetchedUrls.push(item);
+                if(isGotoFetch(item)) fetchedUrls.successUrls.push(item);
             }
-            if(urls.relativeUrls.length == fetchedUrls.length) {
+            if(urls.relativeUrls.length == (fetchedUrls.successUrls.length + fetchedUrls.failedUrls.length)) {
                 console.log('all source fetched!');
                 exitApp();
             }
@@ -159,13 +191,22 @@ function fetchTextDataOperate(res, endUrl, url, isEntrance){
         if(isEntrance){
             fetchRun();
         }else{
-            //递归调用
-            if(currentFetchIndex < urls.relativeUrls.length){
-                fetchURL(urls.relativeUrls[currentFetchIndex]);
-                currentFetchIndex++;
-            }
+            goNext();
         }
     });
+}
+
+function goNext() {
+    //递归调用
+    try {
+        if(currentFetchIndex < urls.relativeUrls.length){
+            currentFetchIndex++;
+            fetchURL(urls.relativeUrls[currentFetchIndex]);
+        }
+    }catch (err){
+        console.log(err);
+        console.log('count:  ' + urls.relativeUrls.length);
+    }
 }
 
 function getSaveDir(url) {
@@ -218,8 +259,7 @@ function saveData(savePath, saveName, data, cb){
         savePath = path.join(savePath, 'index.html')
         console.log('----------->  ' + savePath);
     }
-
-    fs.writeFile(savePath, data, function(err){
+    fs.writeFile(savePath, data ,function(err){
         if(err){
             console.log(savePath + "  " + err);
             if(cb) cb(path.join(savePath, saveName),err);
@@ -251,7 +291,7 @@ function initHandler() {
         var data = fs.readFileSync(fetchedPath).toString();
         fetchedUrls = data ? JSON.parse(data) : [];
     }catch(err){
-        fetchedUrls = [];
+        fetchedUrls = {successUrls: [], failedUrls: []};
     }
 
 }
